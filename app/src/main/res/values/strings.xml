@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TabbedActivity</string>
+    <string name="title_home">HOME</string>
+    <string name="title_dashboard">CART</string>
+    <string name="title_notifications">ACCOUNT</string>
+</resources>
