@@ -18,7 +18,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
             .load(imgUri)
             .apply(
                 RequestOptions()
-                .placeholder(R.drawable.loading_animation)
+                .placeholder(R.drawable.ic_loading_animation)
                 .error(R.drawable.ic_broken_image))
             .into(imgView)
     }
@@ -28,7 +28,5 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 fun bindRecyclerView(recyclerView: RecyclerView,
                      data: List<Property>?) {
     val adapter = recyclerView.adapter as PhotoGridAdapter
-    val topSpacingItemDecoration = TopSpacingItemDecoration(30)
-    recyclerView.addItemDecoration(topSpacingItemDecoration)
     adapter.submitList(data)
 }
