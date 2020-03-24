@@ -17,6 +17,7 @@
         android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:listData="@{viewModel.properties}"
+        android:paddingTop="10dp"
         tools:itemCount="16"
         tools:listitem="@layout/grid_view_item"
         />

@@ -28,5 +28,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 fun bindRecyclerView(recyclerView: RecyclerView,
                      data: List<Property>?) {
     val adapter = recyclerView.adapter as PhotoGridAdapter
+    val spaceItemDecoration = SpaceItemDecoration(30)
+    recyclerView.addItemDecoration(spaceItemDecoration)
     adapter.submitList(data)
 }
