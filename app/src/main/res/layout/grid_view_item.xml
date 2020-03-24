@@ -30,6 +30,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!-- TODO: ADD A HORIZONTAL RECYCLERVIEW FOR ITEMS-->
+
             <LinearLayout
                 android:id="@+id/container1"
                 android:layout_width="wrap_content"
@@ -56,6 +58,7 @@
                     android:text="@{property.descr}"
                     android:textSize="15sp" />
             </LinearLayout>
+            <!--TODO: ADD A ADD TO CART BAR ->-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>
