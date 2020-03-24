@@ -10,24 +10,16 @@
             type="com.example.tabbedactivity.ui.home.HomeViewModel" />
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="10dp"
-        android:paddingBottom="110dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:listData="@{viewModel.properties}"
-            app:spanCount="1"
-            tools:itemCount="16"
-            tools:listitem="@layout/grid_view_item" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:listData="@{viewModel.properties}"
+        tools:itemCount="16"
+        tools:listitem="@layout/grid_view_item"
+        />
 
         <!-- TODO: No Status Image here will have to add it later-->
-
-    </LinearLayout>
 </layout>
