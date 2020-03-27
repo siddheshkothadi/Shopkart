@@ -12,10 +12,12 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
-    private val _response = MutableLiveData<String>()
+    enum class ApiStatus {LOADING, DONE, ERROR}
 
-    val response: LiveData<String>
-        get() = _response
+    private val _status = MutableLiveData<ApiStatus>()
+
+    val status: LiveData<ApiStatus>
+        get() = _status
 
     private val _properties = MutableLiveData<List<Property>>()
 
@@ -35,12 +37,14 @@ class HomeViewModel : ViewModel() {
             // Get the Deferred object for our Retrofit request
             var getPropertiesDeferred = Api.retrofitService.getPropertiesApi()
             try {
+                _status.value = ApiStatus.LOADING
                 // Await the completion of our Retrofit request
                 var listResult = getPropertiesDeferred.await()
-                _response.value = "Success: ${listResult.size} Mars properties retrieved"
+                _status.value = ApiStatus.DONE
                 _properties.value = listResult
             } catch (e: Exception) {
-                _response.value = "Failure: ${e.message}"
+                _properties.value = ArrayList()
+                _status.value = ApiStatus.ERROR
             }
         }
     }

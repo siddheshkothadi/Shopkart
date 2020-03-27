@@ -1,5 +1,6 @@
 package com.example.tabbedactivity
 
+import android.view.View
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.tabbedactivity.network.Property
+import com.example.tabbedactivity.ui.home.HomeViewModel
 import com.example.tabbedactivity.ui.home.PhotoGridAdapter
 
 @BindingAdapter("imageUrl")
@@ -31,4 +33,21 @@ fun bindRecyclerView(recyclerView: RecyclerView,
     val spaceItemDecoration = SpaceItemDecoration(30)
     recyclerView.addItemDecoration(spaceItemDecoration)
     adapter.submitList(data)
+}
+
+@BindingAdapter("ApiStatus")
+fun bindStatus(statusImageView: ImageView, status: HomeViewModel.ApiStatus?) {
+    when (status) {
+        HomeViewModel.ApiStatus.LOADING -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.ic_loading_animation)
+        }
+        HomeViewModel.ApiStatus.ERROR -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.ic_broken_image)
+        }
+        HomeViewModel.ApiStatus.DONE -> {
+            statusImageView.visibility = View.GONE
+        }
+    }
 }
