@@ -29,3 +29,14 @@ interface ApiService {
 object Api {
     val retrofitService : ApiService by lazy { retrofit.create(ApiService::class.java) }
 }
+
+///experiment
+interface ChildApiService {
+    @GET("id")
+    fun getPropertiesChildApi():
+            Deferred<List<Child>>
+}
+
+object ChildApi {
+    val retrofitChildService : ChildApiService by lazy { retrofit.create(ChildApiService::class.java) }
+}

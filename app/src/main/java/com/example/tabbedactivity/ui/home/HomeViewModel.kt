@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.tabbedactivity.network.Api
+import com.example.tabbedactivity.network.Child
+import com.example.tabbedactivity.network.ChildApi
 import com.example.tabbedactivity.network.Property
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -12,15 +14,19 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
-    private val _response = MutableLiveData<String>()
+    enum class ApiStatus {LOADING, DONE, ERROR}
 
-    val response: LiveData<String>
-        get() = _response
+    private val _status = MutableLiveData<ApiStatus>()
+    val status: LiveData<ApiStatus>
+        get() = _status
 
     private val _properties = MutableLiveData<List<Property>>()
-
     val properties: LiveData<List<Property>>
         get() = _properties
+
+    /*private val _childData = MutableLiveData<List<Child>>()
+    val childData: LiveData<List<Child>>
+        get() = _childData*/
 
     private var viewModelJob = Job()
 
@@ -33,14 +39,20 @@ class HomeViewModel : ViewModel() {
     private fun getProperties() {
         coroutineScope.launch {
             // Get the Deferred object for our Retrofit request
-            var getPropertiesDeferred = Api.retrofitService.getPropertiesApi()
+            val getPropertiesDeferred = Api.retrofitService.getPropertiesApi()
+            val getChildPropertiesDeferred = ChildApi.retrofitChildService.getPropertiesChildApi()
             try {
+                _status.value = ApiStatus.LOADING
                 // Await the completion of our Retrofit request
-                var listResult = getPropertiesDeferred.await()
-                _response.value = "Success: ${listResult.size} Mars properties retrieved"
+                val listResult = getPropertiesDeferred.await()
+                //val childResult = getChildPropertiesDeferred.await()
+                _status.value = ApiStatus.DONE
                 _properties.value = listResult
+                //_childData.value = childResult
             } catch (e: Exception) {
-                _response.value = "Failure: ${e.message}"
+                _properties.value = ArrayList()
+                //_childData.value = ArrayList()
+                _status.value = ApiStatus.ERROR
             }
         }
     }

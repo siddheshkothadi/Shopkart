@@ -2,25 +2,40 @@ package com.example.tabbedactivity.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.example.tabbedactivity.R
 import com.example.tabbedactivity.databinding.GridViewItemBinding
 import com.example.tabbedactivity.network.Property
 
-class PhotoGridAdapter : ListAdapter<Property, PhotoGridAdapter.MarsPropertyViewHolder>(DiffCallback) {
+class PhotoGridAdapter : ListAdapter<Property, PhotoGridAdapter.PropertyViewHolder>(DiffCallback) {
 
     /**
      * The MarsPropertyViewHolder constructor takes the binding variable from the associated
      * GridViewItem, which nicely gives it access to the full [MarsProperty] information.
      */
-    class MarsPropertyViewHolder(private var binding: GridViewItemBinding):
+    class PropertyViewHolder(private var binding: GridViewItemBinding):
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(marsProperty: Property) {
-            binding.property = marsProperty
+        fun bind(property: Property) {
+            binding.property = property
             // This is important, because it forces the data binding to execute immediately,
             // which allows the RecyclerView to make the correct view size measurements
             binding.executePendingBindings()
+            /*val imgUri = property.imgSrcUrl.toUri().buildUpon().scheme("https").build()
+
+            binding.blogTitle.text = property.name
+            binding.blogAuthor.text = property.descr
+            val requestOptions = RequestOptions()
+                .placeholder(R.drawable.ic_loading_animation)
+                .error(R.drawable.ic_broken_image)
+            Glide.with(binding.root)
+                .applyDefaultRequestOptions(requestOptions)
+                .load(imgUri)
+                .into(binding.blogImage)*/
         }
     }
 
@@ -42,15 +57,17 @@ class PhotoGridAdapter : ListAdapter<Property, PhotoGridAdapter.MarsPropertyView
      * Create new [RecyclerView] item views (invoked by the layout manager)
      */
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): MarsPropertyViewHolder {
-        return MarsPropertyViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+                                    viewType: Int): PropertyViewHolder {
+        return PropertyViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     /**
      * Replaces the contents of a view (invoked by the layout manager)
      */
-    override fun onBindViewHolder(holder: MarsPropertyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PropertyViewHolder, position: Int) {
         val marsProperty = getItem(position)
         holder.bind(marsProperty)
     }
+
+
 }
