@@ -7,7 +7,9 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.tabbedactivity.network.Child
 import com.example.tabbedactivity.network.Property
+import com.example.tabbedactivity.ui.home.ChildAdapter
 import com.example.tabbedactivity.ui.home.HomeViewModel
 import com.example.tabbedactivity.ui.home.PhotoGridAdapter
 
@@ -51,3 +53,10 @@ fun bindStatus(statusImageView: ImageView, status: HomeViewModel.ApiStatus?) {
         }
     }
 }
+
+/*@BindingAdapter("childData")
+fun bindCRecyclerView(childRec: RecyclerView,
+                     data1: List<Child>?) {
+    val adapter = childRec.adapter as ChildAdapter
+    adapter.submitList(data1)
+}*/

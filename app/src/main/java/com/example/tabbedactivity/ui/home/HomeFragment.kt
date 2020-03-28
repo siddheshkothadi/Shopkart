@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tabbedactivity.R
+import com.example.tabbedactivity.databinding.ChildGridViewItemBinding
 import com.example.tabbedactivity.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
