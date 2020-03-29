@@ -14,11 +14,13 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
+
     enum class ApiStatus {LOADING, DONE, ERROR}
 
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus>
         get() = _status
+
 
     private val _properties = MutableLiveData<List<Property>>()
     val properties: LiveData<List<Property>>
@@ -50,6 +52,7 @@ class HomeViewModel : ViewModel() {
                 _properties.value = listResult
                 //_childData.value = childResult
             } catch (e: Exception) {
+
                 _properties.value = ArrayList()
                 //_childData.value = ArrayList()
                 _status.value = ApiStatus.ERROR

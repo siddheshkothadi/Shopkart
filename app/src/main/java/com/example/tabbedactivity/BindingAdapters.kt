@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.tabbedactivity.network.Child
 import com.example.tabbedactivity.network.Property
-import com.example.tabbedactivity.ui.home.ChildAdapter
 import com.example.tabbedactivity.ui.home.HomeViewModel
 import com.example.tabbedactivity.ui.home.PhotoGridAdapter
 
