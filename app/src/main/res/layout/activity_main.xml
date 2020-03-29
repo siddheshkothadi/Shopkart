@@ -18,6 +18,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:navGraph="@navigation/mobile_navigation" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -31,9 +32,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        >
-
+        android:padding="10dp">
         <ImageView
             android:id="@+id/imageView2"
             android:layout_marginStart="10dp"
@@ -43,7 +42,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_user_24dp" />
-
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
@@ -55,8 +53,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -68,7 +66,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" >
-
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

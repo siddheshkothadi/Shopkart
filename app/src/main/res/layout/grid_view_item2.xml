@@ -5,7 +5,7 @@
     <data>
         <variable
             name="property"
-            type="com.example.tabbedactivity.network.Property" />
+            type="com.example.tabbedactivity.network.Property2" />
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

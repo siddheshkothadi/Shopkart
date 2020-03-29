@@ -3,10 +3,7 @@ package com.example.tabbedactivity.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.tabbedactivity.network.Api
-import com.example.tabbedactivity.network.Child
-import com.example.tabbedactivity.network.ChildApi
-import com.example.tabbedactivity.network.Property
+import com.example.tabbedactivity.network.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -21,14 +18,17 @@ class HomeViewModel : ViewModel() {
     val status: LiveData<ApiStatus>
         get() = _status
 
-
     private val _properties = MutableLiveData<List<Property>>()
     val properties: LiveData<List<Property>>
         get() = _properties
 
-    /*private val _childData = MutableLiveData<List<Child>>()
-    val childData: LiveData<List<Child>>
-        get() = _childData*/
+    private val _properties2 = MutableLiveData<List<Property2>>()
+    val properties2: LiveData<List<Property2>>
+        get() = _properties2
+
+    private val _properties3 = MutableLiveData<List<Property3>>()
+    val properties3: LiveData<List<Property3>>
+        get() = _properties3
 
     private var viewModelJob = Job()
 
@@ -42,19 +42,22 @@ class HomeViewModel : ViewModel() {
         coroutineScope.launch {
             // Get the Deferred object for our Retrofit request
             val getPropertiesDeferred = Api.retrofitService.getPropertiesApi()
-            val getChildPropertiesDeferred = ChildApi.retrofitChildService.getPropertiesChildApi()
+            val getPropertiesDeferred2 = Api2.retrofitService2.getPropertiesApi2()
+            val getPropertiesDeferred3 = Api3.retrofitService3.getPropertiesApi3()
             try {
                 _status.value = ApiStatus.LOADING
-                // Await the completion of our Retrofit request
                 val listResult = getPropertiesDeferred.await()
-                //val childResult = getChildPropertiesDeferred.await()
+                val listResult2 = getPropertiesDeferred2.await()
+                val listResult3 = getPropertiesDeferred3.await()
+
                 _status.value = ApiStatus.DONE
                 _properties.value = listResult
-                //_childData.value = childResult
+                _properties2.value = listResult2
+                _properties3.value = listResult3
             } catch (e: Exception) {
-
                 _properties.value = ArrayList()
-                //_childData.value = ArrayList()
+                _properties2.value = ArrayList()
+                _properties3.value = ArrayList()
                 _status.value = ApiStatus.ERROR
             }
         }

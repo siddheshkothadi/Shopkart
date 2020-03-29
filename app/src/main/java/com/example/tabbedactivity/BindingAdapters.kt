@@ -7,10 +7,13 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.tabbedactivity.network.Child
 import com.example.tabbedactivity.network.Property
+import com.example.tabbedactivity.network.Property2
+import com.example.tabbedactivity.network.Property3
 import com.example.tabbedactivity.ui.home.HomeViewModel
-import com.example.tabbedactivity.ui.home.PhotoGridAdapter
+import com.example.tabbedactivity.ui.home.Adapter1
+import com.example.tabbedactivity.ui.home.Adapter2
+import com.example.tabbedactivity.ui.home.Adapter3
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -27,10 +30,28 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
-@BindingAdapter("listData")
+@BindingAdapter("listData1")
 fun bindRecyclerView(recyclerView: RecyclerView,
                      data: List<Property>?) {
-    val adapter = recyclerView.adapter as PhotoGridAdapter
+    val adapter = recyclerView.adapter as Adapter1
+    val spaceItemDecoration = SpaceItemDecoration(30)
+    recyclerView.addItemDecoration(spaceItemDecoration)
+    adapter.submitList(data)
+}
+
+@BindingAdapter("listData2")
+fun bindRecyclerView2(recyclerView: RecyclerView,
+                     data: List<Property2>?) {
+    val adapter = recyclerView.adapter as Adapter2
+    val spaceItemDecoration = SpaceItemDecoration(30)
+    recyclerView.addItemDecoration(spaceItemDecoration)
+    adapter.submitList(data)
+}
+
+@BindingAdapter("listData3")
+fun bindRecyclerView3(recyclerView: RecyclerView,
+                     data: List<Property3>?) {
+    val adapter = recyclerView.adapter as Adapter3
     val spaceItemDecoration = SpaceItemDecoration(30)
     recyclerView.addItemDecoration(spaceItemDecoration)
     adapter.submitList(data)
@@ -53,9 +74,3 @@ fun bindStatus(statusImageView: ImageView, status: HomeViewModel.ApiStatus?) {
     }
 }
 
-/*@BindingAdapter("childData")
-fun bindCRecyclerView(childRec: RecyclerView,
-                     data1: List<Child>?) {
-    val adapter = childRec.adapter as ChildAdapter
-    adapter.submitList(data1)
-}*/

@@ -3,4 +3,5 @@
     <string name="title_home">HOME</string>
     <string name="title_dashboard">CART</string>
     <string name="title_notifications">ACCOUNT</string>
+    <string name="addToCart">ADD TO CART</string>
 </resources>
