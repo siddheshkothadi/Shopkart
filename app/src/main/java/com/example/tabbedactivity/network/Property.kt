@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 
 data class Property(
     val id: String,
-    val name: String,
+    var name: String,
     @Json(name="image") val imgSrcUrl: String,
     val descr: String
 )

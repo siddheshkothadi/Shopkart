@@ -74,3 +74,4 @@ fun bindStatus(statusImageView: ImageView, status: HomeViewModel.ApiStatus?) {
     }
 }
 
+

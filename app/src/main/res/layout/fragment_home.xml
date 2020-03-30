@@ -8,6 +8,9 @@
         <variable
             name="viewModel"
             type="com.example.tabbedactivity.ui.home.HomeViewModel" />
+        <variable
+            name="property"
+            type="com.example.tabbedactivity.network.Property" />
     </data>
 
     <ScrollView
@@ -32,13 +35,15 @@
 
                     <ImageView
                         android:id="@+id/imageView1"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="4dp"
-                        android:src="@mipmap/ic_launcher"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/ic_ripple"
+                        android:scaleType="fitXY"
+                        app:imageUrl="@{viewModel.properties[0].imgSrcUrl}"
                         />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -78,7 +83,7 @@
                         android:id="@+id/textView11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Description"
+                        android:text="@{viewModel.properties[0].name}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageView1" />
@@ -87,7 +92,7 @@
                         android:id="@+id/textView12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Description"
+                        android:text="@{viewModel.properties[0].descr}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView11" />

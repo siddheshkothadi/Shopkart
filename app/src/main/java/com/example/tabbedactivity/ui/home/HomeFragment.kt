@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tabbedactivity.databinding.FragmentHomeBinding
+import com.example.tabbedactivity.network.Property
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
@@ -25,6 +28,11 @@ class HomeFragment : Fragment() {
         binding.recyclerView1.adapter = Adapter1()
         binding.recyclerView2.adapter = Adapter2()
         binding.recyclerView3.adapter = Adapter3()
+        /*viewModel.text1.observe(viewLifecycleOwner, Observer { newX ->
+            binding.property = newX
+        })*/
         return binding.root
     }
+
+
 }

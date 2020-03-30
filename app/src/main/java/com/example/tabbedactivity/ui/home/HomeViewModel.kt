@@ -1,5 +1,6 @@
 package com.example.tabbedactivity.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,17 +12,22 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
-
     enum class ApiStatus {LOADING, DONE, ERROR}
 
     private val _status = MutableLiveData<ApiStatus>()
     val status: LiveData<ApiStatus>
         get() = _status
 
-    private val _properties = MutableLiveData<List<Property>>()
-    val properties: LiveData<List<Property>>
-        get() = _properties
+    /*private val _text1 = MutableLiveData<Property?>()
+    val text1: LiveData<Property?>
+        get() = _text1*/
 
+    private val _properties = MutableLiveData<List<Property?>>()
+    val properties: LiveData<List<Property?>>
+        get() = _properties
+    /*init {
+        _properties.value!![0]?.name=" "
+    }*/
     private val _properties2 = MutableLiveData<List<Property2>>()
     val properties2: LiveData<List<Property2>>
         get() = _properties2
@@ -49,11 +55,12 @@ class HomeViewModel : ViewModel() {
                 val listResult = getPropertiesDeferred.await()
                 val listResult2 = getPropertiesDeferred2.await()
                 val listResult3 = getPropertiesDeferred3.await()
-
+                //_text1.value = listResult[0]
                 _status.value = ApiStatus.DONE
                 _properties.value = listResult
                 _properties2.value = listResult2
                 _properties3.value = listResult3
+                println(properties.value!![0])
             } catch (e: Exception) {
                 _properties.value = ArrayList()
                 _properties2.value = ArrayList()
