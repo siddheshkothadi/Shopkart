@@ -21,32 +21,22 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ApiService {
-    @GET("id")
-    fun getPropertiesApi():
-            Deferred<List<Property>>
+    @GET("kit_types")
+    fun getKitTypesAsync():
+            Deferred<List<KitType>>
+    @GET("list_basic")
+    fun getItems1Async():
+            Deferred<List<ItemType>>
+    @GET("list_advanced")
+    fun getItems2Async():
+            Deferred<List<ItemType>>
+    @GET("list_professional")
+    fun getItems3Async():
+            Deferred<List<ItemType>>
 }
 
 object Api {
     val retrofitService : ApiService by lazy { retrofit.create(ApiService::class.java) }
 }
 
-interface ApiService2 {
-    @GET("id")
-    fun getPropertiesApi2():
-            Deferred<List<Property2>>
-}
-
-object Api2 {
-    val retrofitService2 : ApiService2 by lazy { retrofit.create(ApiService2::class.java) }
-}
-
-interface ApiService3 {
-    @GET("id")
-    fun getPropertiesApi3():
-            Deferred<List<Property3>>
-}
-
-object Api3 {
-    val retrofitService3 : ApiService3 by lazy { retrofit.create(ApiService3::class.java) }
-}
 
