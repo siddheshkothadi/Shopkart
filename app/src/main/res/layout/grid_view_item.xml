@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{property.name}"
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/item_price"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +46,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{property.price}"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_name" />
+                app:layout_constraintTop_toBottomOf="@+id/item_name"
+                android:paddingBottom="10dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
