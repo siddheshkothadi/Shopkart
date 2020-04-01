@@ -8,10 +8,10 @@
             type="com.example.tabbedactivity.network.ItemType" />
     </data>
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="3dp"
+        android:layout_width="240dp"
+        android:layout_height="360dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
         app:cardPreventCornerOverlap="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,11 +20,10 @@
 
             <ImageView
                 android:id="@+id/item_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
                 android:adjustViewBounds="true"
                 android:padding="15dp"
-                android:scaleType="fitXY"
                 app:imageUrl="@{property.imgSrcUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -32,19 +31,19 @@
 
             <TextView
                 android:id="@+id/item_name"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{property.name}"
                 android:textColor="#000"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/item_price"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_image" />
 
             <TextView
                 android:id="@+id/item_price"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{property.price}"
                 android:textSize="25sp"
