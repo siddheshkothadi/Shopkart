@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">TabbedActivity</string>
-    <string name="title_home">HOME</string>
-    <string name="title_dashboard">CART</string>
-    <string name="title_notifications">ACCOUNT</string>
+    <string name="app_name">Shopkart</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Cart</string>
+    <string name="title_notifications">Account</string>
     <string name="addToCart">ADD TO CART</string>
 </resources>
