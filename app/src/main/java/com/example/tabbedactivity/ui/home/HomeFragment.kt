@@ -4,12 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.tabbedactivity.R
-import com.example.tabbedactivity.databinding.ChildGridViewItemBinding
 import com.example.tabbedactivity.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -26,8 +22,11 @@ class HomeFragment : Fragment() {
         val binding = FragmentHomeBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        binding.recyclerView.adapter = PhotoGridAdapter()
+        binding.recyclerView1.adapter = ItemAdapter()
+        binding.recyclerView2.adapter = ItemAdapter()
+        binding.recyclerView3.adapter = ItemAdapter()
         return binding.root
     }
+
 
 }

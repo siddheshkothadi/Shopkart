@@ -5,69 +5,54 @@
     <data>
         <variable
             name="property"
-            type="com.example.tabbedactivity.network.Property" />
+            type="com.example.tabbedactivity.network.ItemType" />
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="3dp"
+        android:layout_height="360dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
         app:cardPreventCornerOverlap="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/blog_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/item_image"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
                 android:adjustViewBounds="true"
                 android:padding="15dp"
-                android:scaleType="fitXY"
                 app:imageUrl="@{property.imgSrcUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
-            <LinearLayout
-                android:id="@+id/container1"
+            <TextView
+                android:id="@+id/item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@{property.name}"
+                android:textColor="#000"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/item_price"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/blog_image">
+                app:layout_constraintTop_toBottomOf="@+id/item_image" />
 
-                <TextView
-                    android:id="@+id/blog_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{property.name}"
-                    android:textColor="#000"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{property.price}"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_name"
+                android:paddingBottom="10dp"/>
 
-                <TextView
-                    android:id="@+id/blog_author"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@{property.descr}"
-                    android:textSize="15sp" />
-
-                <!--androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/child_rec"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    tools:listitem="@layout/child_grid_view_item"
-                    tools:itemCount="15"
-                    app:childData="@{viewModel.childData}"/-->
-            </LinearLayout>
-            <!--TODO: ADD A ADD TO CART BAR ->-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

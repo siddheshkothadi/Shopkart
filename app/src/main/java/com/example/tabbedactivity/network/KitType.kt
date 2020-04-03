@@ -2,9 +2,10 @@ package com.example.tabbedactivity.network
 import com.squareup.moshi.Json
 
 
-data class Property(
+data class KitType(
     val id: String,
-    val name: String,
+    var name: String,
     @Json(name="image") val imgSrcUrl: String,
-    val descr: String
+    val description: String,
+    val price: String
 )

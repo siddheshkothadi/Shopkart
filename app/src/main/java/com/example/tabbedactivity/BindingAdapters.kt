@@ -2,15 +2,16 @@ package com.example.tabbedactivity
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.ScrollView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.tabbedactivity.network.Child
-import com.example.tabbedactivity.network.Property
+import com.example.tabbedactivity.network.ItemType
 import com.example.tabbedactivity.ui.home.HomeViewModel
-import com.example.tabbedactivity.ui.home.PhotoGridAdapter
+import com.example.tabbedactivity.ui.home.ItemAdapter
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -29,33 +30,35 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView,
-                     data: List<Property>?) {
-    val adapter = recyclerView.adapter as PhotoGridAdapter
+                     data: List<ItemType>?) {
+    val adapter = recyclerView.adapter as ItemAdapter
     val spaceItemDecoration = SpaceItemDecoration(30)
     recyclerView.addItemDecoration(spaceItemDecoration)
     adapter.submitList(data)
 }
 
-@BindingAdapter("ApiStatus")
-fun bindStatus(statusImageView: ImageView, status: HomeViewModel.ApiStatus?) {
+@BindingAdapter("apiStatus")
+fun bindStatus(progressBar: ProgressBar, status: HomeViewModel.ApiStatus?) {
     when (status) {
         HomeViewModel.ApiStatus.LOADING -> {
-            statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.ic_loading_animation)
+            progressBar.visibility = View.VISIBLE
         }
         HomeViewModel.ApiStatus.ERROR -> {
-            statusImageView.visibility = View.VISIBLE
-            statusImageView.setImageResource(R.drawable.ic_broken_image)
+            progressBar.visibility = View.GONE
         }
         HomeViewModel.ApiStatus.DONE -> {
-            statusImageView.visibility = View.GONE
+            progressBar.visibility = View.GONE
         }
     }
 }
 
-/*@BindingAdapter("childData")
-fun bindCRecyclerView(childRec: RecyclerView,
-                     data1: List<Child>?) {
-    val adapter = childRec.adapter as ChildAdapter
-    adapter.submitList(data1)
-}*/
+@BindingAdapter("scrollApiStatus")
+fun bindStatus(scrollView: ScrollView, status: HomeViewModel.ApiStatus?) {
+    when (status) {
+        HomeViewModel.ApiStatus.DONE -> {
+            scrollView.visibility = View.VISIBLE
+        }
+    }
+}
+
+

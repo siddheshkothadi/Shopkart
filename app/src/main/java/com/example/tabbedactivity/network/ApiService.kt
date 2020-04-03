@@ -8,7 +8,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://5e6890f8d426c00016b7e095.mockapi.io/api/sfc_kit/"
+//private const val BASE_URL = "http://5e6890f8d426c00016b7e095.mockapi.io/api/sfc_kit/"
+private const val BASE_URL = "https://testapi.io/api/siddheshkt/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -21,22 +22,20 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ApiService {
-    @GET("id")
-    fun getPropertiesApi():
-            Deferred<List<Property>>
+    @GET("kit_types")
+    fun getKitTypesAsync():
+            Deferred<List<KitType>>
+    @GET("list_basic")
+    fun getItems1Async():
+            Deferred<List<ItemType>>
+    @GET("list_advanced")
+    fun getItems2Async():
+            Deferred<List<ItemType>>
+    @GET("list_professional")
+    fun getItems3Async():
+            Deferred<List<ItemType>>
 }
 
 object Api {
     val retrofitService : ApiService by lazy { retrofit.create(ApiService::class.java) }
-}
-
-///experiment
-interface ChildApiService {
-    @GET("id")
-    fun getPropertiesChildApi():
-            Deferred<List<Child>>
-}
-
-object ChildApi {
-    val retrofitChildService : ChildApiService by lazy { retrofit.create(ChildApiService::class.java) }
 }
