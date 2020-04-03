@@ -8,7 +8,7 @@
             type="com.example.tabbedactivity.network.ItemType" />
     </data>
     <androidx.cardview.widget.CardView
-        android:layout_width="240dp"
+        android:layout_width="match_parent"
         android:layout_height="360dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="2dp"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{property.name}"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/item_price"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
