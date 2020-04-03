@@ -1,4 +1,4 @@
-package com.example.tabbedactivity.ui.dashboard
+package com.example.shopkart.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

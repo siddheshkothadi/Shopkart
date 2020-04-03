@@ -1,4 +1,4 @@
-package com.example.tabbedactivity.ui.notifications
+package com.example.shopkart.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.tabbedactivity.R
+import com.example.shopkart.R
 
 class AccountFragment : Fragment() {
 

@@ -1,9 +1,9 @@
-package com.example.tabbedactivity.ui.home
+package com.example.shopkart.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.tabbedactivity.network.*
+import com.example.shopkart.network.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

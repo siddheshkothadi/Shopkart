@@ -1,4 +1,4 @@
-package com.example.tabbedactivity
+package com.example.shopkart
 
 import org.junit.Test
 

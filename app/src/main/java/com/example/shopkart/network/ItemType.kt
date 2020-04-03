@@ -1,4 +1,4 @@
-package com.example.tabbedactivity.network
+package com.example.shopkart.network
 
 import com.squareup.moshi.Json
 

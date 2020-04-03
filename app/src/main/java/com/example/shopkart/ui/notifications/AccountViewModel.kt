@@ -1,4 +1,4 @@
-package com.example.tabbedactivity.ui.notifications
+package com.example.shopkart.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

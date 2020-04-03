@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.tabbedactivity.ui.home.HomeFragment"
+        android:name="com.example.shopkart.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.example.tabbedactivity.ui.dashboard.CartFragment"
+        android:name="com.example.shopkart.ui.dashboard.CartFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_cart" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.tabbedactivity.ui.notifications.AccountFragment"
+        android:name="com.example.shopkart.ui.notifications.AccountFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_account" />
 </navigation>

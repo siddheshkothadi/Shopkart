@@ -1,4 +1,4 @@
-package com.example.tabbedactivity
+package com.example.shopkart
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView

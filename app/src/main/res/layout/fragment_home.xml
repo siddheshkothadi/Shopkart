@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.tabbedactivity.ui.home.HomeViewModel" />
+            type="com.example.shopkart.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,4 +1,4 @@
-package com.example.tabbedactivity
+package com.example.shopkart
 
 import android.graphics.Rect
 import android.view.View

@@ -1,4 +1,4 @@
-package com.example.tabbedactivity
+package com.example.shopkart
 
 import android.view.View
 import android.widget.ImageView
@@ -9,9 +9,9 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.tabbedactivity.network.ItemType
-import com.example.tabbedactivity.ui.home.HomeViewModel
-import com.example.tabbedactivity.ui.home.ItemAdapter
+import com.example.shopkart.network.ItemType
+import com.example.shopkart.ui.home.HomeViewModel
+import com.example.shopkart.ui.home.ItemAdapter
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {

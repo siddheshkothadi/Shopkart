@@ -1,12 +1,12 @@
-package com.example.tabbedactivity.ui.home
+package com.example.shopkart.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tabbedactivity.databinding.GridViewItemBinding
-import com.example.tabbedactivity.network.ItemType
+import com.example.shopkart.databinding.GridViewItemBinding
+import com.example.shopkart.network.ItemType
 
 class ItemAdapter : ListAdapter<ItemType, ItemAdapter.ItemViewHolder>(DiffCallback) {
 

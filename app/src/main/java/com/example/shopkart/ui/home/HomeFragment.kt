@@ -1,4 +1,4 @@
-package com.example.tabbedactivity.ui.home
+package com.example.shopkart.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.tabbedactivity.databinding.FragmentHomeBinding
+import com.example.shopkart.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 

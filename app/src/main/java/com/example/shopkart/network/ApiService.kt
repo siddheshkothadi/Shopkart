@@ -1,4 +1,4 @@
-package com.example.tabbedactivity.network
+package com.example.shopkart.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
