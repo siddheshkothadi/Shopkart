@@ -1,4 +1,4 @@
-package com.example.shopkart
+package com.example.shopkart.ui
 
 import android.graphics.Rect
 import android.view.View

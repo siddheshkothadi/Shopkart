@@ -1,4 +1,4 @@
-package com.example.shopkart.ui.dashboard
+package com.example.shopkart.ui.cart
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.shopkart.R
+import com.example.shopkart.viewmodels.cart.CartViewModel
 
 class CartFragment : Fragment() {
 

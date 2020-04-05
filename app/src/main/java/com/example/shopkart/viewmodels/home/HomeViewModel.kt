@@ -1,8 +1,10 @@
-package com.example.shopkart.ui.home
+package com.example.shopkart.viewmodels.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.shopkart.network.ItemType
+import com.example.shopkart.network.KitType
 import com.example.shopkart.network.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -49,19 +51,22 @@ class HomeViewModel : ViewModel() {
             val items2Deferred = Api.retrofitService.getItems2Async()
             val items3Deferred = Api.retrofitService.getItems3Async()
             try {
-                _status.value = ApiStatus.LOADING
+                _status.value =
+                    ApiStatus.LOADING
                 val kitList = kitTypesDeferred.await()
                 val items1List = items1Deferred.await()
                 val items2List = items2Deferred.await()
                 val items3List = items3Deferred.await()
-                _status.value = ApiStatus.DONE
+                _status.value =
+                    ApiStatus.DONE
                 _kitTypes.value = kitList
                 _items1.value = items1List
                 _items2.value = items2List
                 _items3.value = items3List
                 println(kitList)
             } catch (e: Exception) {
-                _status.value = ApiStatus.ERROR
+                _status.value =
+                    ApiStatus.ERROR
                 _kitTypes.value = ArrayList()
                 _items1.value = ArrayList()
                 _items2.value = ArrayList()

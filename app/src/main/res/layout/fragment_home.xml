@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.shopkart.ui.home.HomeViewModel" />
+            type="com.example.shopkart.viewmodels.home.HomeViewModel" />
     </data>
 
     <FrameLayout
