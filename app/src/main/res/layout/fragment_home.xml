@@ -14,20 +14,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ProgressBar
+        <!--ProgressBar
             android:id="@+id/progressBar3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:apiStatus="@{viewModel.status}"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"/-->
 
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:visibility="gone"
-            app:scrollApiStatus="@{viewModel.status}">
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"

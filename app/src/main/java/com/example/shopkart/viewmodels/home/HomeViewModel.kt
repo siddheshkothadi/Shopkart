@@ -1,17 +1,13 @@
 package com.example.shopkart.viewmodels.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.shopkart.network.ItemType
-import com.example.shopkart.network.KitType
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.shopkart.database.getDatabase
 import com.example.shopkart.network.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import com.example.shopkart.repository.Repository
+import kotlinx.coroutines.*
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(application: Application) : ViewModel() {
 
     enum class ApiStatus {LOADING, DONE, ERROR}
 
@@ -19,58 +15,33 @@ class HomeViewModel : ViewModel() {
     val status: LiveData<ApiStatus>
         get() = _status
 
-    private val _kitTypes = MutableLiveData<List<KitType?>>()
-    val kitTypes: LiveData<List<KitType?>>
-        get() = _kitTypes
+    private val repository = Repository(getDatabase(application))
 
-    private val _items1 = MutableLiveData<List<ItemType?>>()
-    val items1: LiveData<List<ItemType?>>
-        get() = _items1
+    val kitTypes = repository.kits
 
-    private val _items2 = MutableLiveData<List<ItemType?>>()
-    val items2: LiveData<List<ItemType?>>
-        get() = _items2
+    val items1 = repository.items1
 
-    private val _items3 = MutableLiveData<List<ItemType?>>()
-    val items3: LiveData<List<ItemType?>>
-        get() = _items3
+    val items2 = repository.items2
 
-    private var viewModelJob = Job()
+    val items3 = repository.items3
+
+    private var viewModelJob = SupervisorJob()
 
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
     init {
-        getProperties()
+        refreshDataFromRepository()
     }
 
-    private fun getProperties() {
+    private fun refreshDataFromRepository() {
         coroutineScope.launch {
-            // Get the Deferred object for our Retrofit request
-            val kitTypesDeferred = Api.retrofitService.getKitTypesAsync()
-            val items1Deferred = Api.retrofitService.getItems1Async()
-            val items2Deferred = Api.retrofitService.getItems2Async()
-            val items3Deferred = Api.retrofitService.getItems3Async()
             try {
-                _status.value =
-                    ApiStatus.LOADING
-                val kitList = kitTypesDeferred.await()
-                val items1List = items1Deferred.await()
-                val items2List = items2Deferred.await()
-                val items3List = items3Deferred.await()
-                _status.value =
-                    ApiStatus.DONE
-                _kitTypes.value = kitList
-                _items1.value = items1List
-                _items2.value = items2List
-                _items3.value = items3List
-                println(kitList)
+                _status.value = ApiStatus.DONE
+                repository.refreshKitsAndItems()
+                _status.value = ApiStatus.DONE
             } catch (e: Exception) {
                 _status.value =
                     ApiStatus.ERROR
-                _kitTypes.value = ArrayList()
-                _items1.value = ArrayList()
-                _items2.value = ArrayList()
-                _items3.value = ArrayList()
             }
         }
     }
@@ -78,5 +49,15 @@ class HomeViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+    }
+
+    class Factory(val app: Application) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+                @Suppress("UNCHECKED_CAST")
+                return HomeViewModel(app) as T
+            }
+            throw IllegalArgumentException("Unable to construct viewmodel")
+        }
     }
 }

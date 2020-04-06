@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shopkart.databinding.GridViewItemBinding
+import com.example.shopkart.domain.ItemTypeModel
 import com.example.shopkart.network.ItemType
 
-class ItemAdapter : ListAdapter<ItemType, ItemAdapter.ItemViewHolder>(DiffCallback) {
+class ItemAdapter : ListAdapter<ItemTypeModel, ItemAdapter.ItemViewHolder>(DiffCallback) {
 
     /**
      * The MarsPropertyViewHolder constructor takes the binding variable from the associated
@@ -16,7 +17,7 @@ class ItemAdapter : ListAdapter<ItemType, ItemAdapter.ItemViewHolder>(DiffCallba
      */
     class ItemViewHolder(private var binding: GridViewItemBinding):
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ItemType) {
+        fun bind(item: ItemTypeModel) {
             binding.property = item
             binding.executePendingBindings()
             // This is important, because it forces the data binding to execute immediately,
@@ -28,12 +29,12 @@ class ItemAdapter : ListAdapter<ItemType, ItemAdapter.ItemViewHolder>(DiffCallba
      * Allows the RecyclerView to determine which items have changed when the [List] of [MarsProperty]
      * has been updated.
      */
-    companion object DiffCallback : DiffUtil.ItemCallback<ItemType>() {
-        override fun areItemsTheSame(oldItem: ItemType, newItem: ItemType): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<ItemTypeModel>() {
+        override fun areItemsTheSame(oldItem: ItemTypeModel, newItem: ItemTypeModel): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: ItemType, newItem: ItemType): Boolean {
+        override fun areContentsTheSame(oldItem: ItemTypeModel, newItem: ItemTypeModel): Boolean {
             return oldItem.id == newItem.id
         }
     }

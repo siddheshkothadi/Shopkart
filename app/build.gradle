@@ -14,7 +14,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.example.tabbedactivity"
+        applicationId "com.example.shopkart"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1

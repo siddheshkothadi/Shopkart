@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.shopkart.R
+import com.example.shopkart.domain.ItemTypeModel
 import com.example.shopkart.network.ItemType
 import com.example.shopkart.ui.SpaceItemDecoration
 import com.example.shopkart.viewmodels.home.HomeViewModel
@@ -32,14 +33,14 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView,
-                     data: List<ItemType>?) {
+                     data: List<ItemTypeModel>?) {
     val adapter = recyclerView.adapter as ItemAdapter
     val spaceItemDecoration = SpaceItemDecoration(30)
     recyclerView.addItemDecoration(spaceItemDecoration)
     adapter.submitList(data)
 }
 
-@BindingAdapter("apiStatus")
+/*@BindingAdapter("apiStatus")
 fun bindStatus(progressBar: ProgressBar, status: HomeViewModel.ApiStatus?) {
     when (status) {
         HomeViewModel.ApiStatus.LOADING -> {
@@ -61,6 +62,6 @@ fun bindStatus(scrollView: ScrollView, status: HomeViewModel.ApiStatus?) {
             scrollView.visibility = View.VISIBLE
         }
     }
-}
+}*/
 
 
