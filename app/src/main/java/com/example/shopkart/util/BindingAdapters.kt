@@ -11,10 +11,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.shopkart.R
 import com.example.shopkart.domain.ItemTypeModel
-import com.example.shopkart.network.ItemType
 import com.example.shopkart.ui.SpaceItemDecoration
-import com.example.shopkart.viewmodels.home.HomeViewModel
 import com.example.shopkart.ui.home.ItemAdapter
+import com.example.shopkart.viewmodels.home.HomeViewModel
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -35,33 +34,21 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 fun bindRecyclerView(recyclerView: RecyclerView,
                      data: List<ItemTypeModel>?) {
     val adapter = recyclerView.adapter as ItemAdapter
-    val spaceItemDecoration = SpaceItemDecoration(30)
-    recyclerView.addItemDecoration(spaceItemDecoration)
     adapter.submitList(data)
 }
 
-/*@BindingAdapter("apiStatus")
+@BindingAdapter("apiStatus")
 fun bindStatus(progressBar: ProgressBar, status: HomeViewModel.ApiStatus?) {
-    when (status) {
-        HomeViewModel.ApiStatus.LOADING -> {
-            progressBar.visibility = View.VISIBLE
-        }
-        HomeViewModel.ApiStatus.ERROR -> {
-            progressBar.visibility = View.GONE
-        }
-        HomeViewModel.ApiStatus.DONE -> {
-            progressBar.visibility = View.GONE
-        }
+    when (status){
+        HomeViewModel.ApiStatus.DONE -> progressBar.visibility = View.GONE
+        HomeViewModel.ApiStatus.LOADING -> progressBar.visibility = View.VISIBLE
+        HomeViewModel.ApiStatus.ERROR -> progressBar.visibility = View.GONE
     }
 }
 
-@BindingAdapter("scrollApiStatus")
-fun bindStatus(scrollView: ScrollView, status: HomeViewModel.ApiStatus?) {
-    when (status) {
-        HomeViewModel.ApiStatus.DONE -> {
-            scrollView.visibility = View.VISIBLE
-        }
-    }
-}*/
-
-
+@BindingAdapter("padding")
+fun bindRecyclerView(recyclerView: RecyclerView,
+                     padding : Int) {
+    val spaceItemDecoration = SpaceItemDecoration(padding)
+    recyclerView.addItemDecoration(spaceItemDecoration)
+}

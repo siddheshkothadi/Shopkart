@@ -2,12 +2,12 @@ package com.example.shopkart.viewmodels.home
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.shopkart.database.getDatabase
+import com.example.shopkart.database.*
 import com.example.shopkart.network.*
 import com.example.shopkart.repository.Repository
 import kotlinx.coroutines.*
 
-class HomeViewModel(application: Application) : ViewModel() {
+class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     enum class ApiStatus {LOADING, DONE, ERROR}
 
@@ -36,12 +36,11 @@ class HomeViewModel(application: Application) : ViewModel() {
     private fun refreshDataFromRepository() {
         coroutineScope.launch {
             try {
-                _status.value = ApiStatus.DONE
+                _status.value = ApiStatus.LOADING
                 repository.refreshKitsAndItems()
                 _status.value = ApiStatus.DONE
             } catch (e: Exception) {
-                _status.value =
-                    ApiStatus.ERROR
+                _status.value = ApiStatus.ERROR
             }
         }
     }
