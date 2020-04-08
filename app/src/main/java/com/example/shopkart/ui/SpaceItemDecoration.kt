@@ -1,4 +1,4 @@
-package com.example.shopkart
+package com.example.shopkart.ui
 
 import android.graphics.Rect
 import android.view.View
@@ -14,7 +14,7 @@ class SpaceItemDecoration(private val padding: Int): RecyclerView.ItemDecoration
         super.getItemOffsets(outRect, view, parent, state)
         outRect.top = padding
         outRect.bottom = padding
-        outRect.left = padding - 8
-        outRect.right = 10
+        outRect.left = padding
+        outRect.right = padding
     }
 }
