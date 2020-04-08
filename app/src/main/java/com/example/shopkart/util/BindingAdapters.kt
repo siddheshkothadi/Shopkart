@@ -3,7 +3,6 @@ package com.example.shopkart.util
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
-import android.widget.ScrollView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -52,3 +51,5 @@ fun bindRecyclerView(recyclerView: RecyclerView,
     val spaceItemDecoration = SpaceItemDecoration(padding)
     recyclerView.addItemDecoration(spaceItemDecoration)
 }
+
+//TODO: Implement connection logic for progress bar

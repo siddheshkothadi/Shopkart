@@ -16,11 +16,12 @@
         android:orientation="vertical">
 
         <ProgressBar
-            android:layout_marginTop="10dp"
             android:id="@+id/progressBar3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimary"
+            android:indeterminateTint="@color/colorPrimaryDark"
             app:apiStatus="@{viewModel.status}" />
 
         <ScrollView

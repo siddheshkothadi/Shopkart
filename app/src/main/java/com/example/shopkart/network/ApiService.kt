@@ -8,8 +8,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
+private const val BASE_URL = "https://siddheshkothadi.github.io/ApiData/"
 //private const val BASE_URL = "http://5e6890f8d426c00016b7e095.mockapi.io/api/sfc_kit/"
-private const val BASE_URL = "https://testapi.io/api/siddheshkt/"
+//private const val BASE_URL = "https://testapi.io/api/siddheshkt/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -22,16 +23,16 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ApiService {
-    @GET("kit_types")
+    @GET("kit_types.json")
     fun getKitTypesAsync():
             Deferred<List<KitType>>
-    @GET("list_basic")
+    @GET("list_basic.json")
     fun getItems1Async():
             Deferred<List<ItemType>>
-    @GET("list_advanced")
+    @GET("list_advanced.json")
     fun getItems2Async():
             Deferred<List<ItemType>>
-    @GET("list_professional")
+    @GET("list_professional.json")
     fun getItems3Async():
             Deferred<List<ItemType>>
 }
