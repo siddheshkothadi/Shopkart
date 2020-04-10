@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 //Entities
+//For ItemType
 @Entity
 data class DatabaseItemType1 constructor(
     @PrimaryKey
@@ -26,6 +27,7 @@ data class DatabaseItemType3 constructor(
     val imgSrcUrl: String,
     val price: String)
 
+//For KitType
 @Entity
 data class DatabaseKitType constructor(
     @PrimaryKey
@@ -33,4 +35,13 @@ data class DatabaseKitType constructor(
     var name: String,
     val imgSrcUrl: String,
     val description: String,
+    val price: String)
+
+
+//For cart
+@Entity
+data class DatabaseCart constructor(
+    @PrimaryKey
+    val name: String,
+    val imgSrcUrl: String,
     val price: String)

@@ -31,9 +31,20 @@ interface CommonDao{
     fun getKitType(): LiveData<List<DatabaseKitType>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllKits( kits: List<DatabaseKitType>)
+
+    //For cart
+    @Query("select * from databasekittype")
+    fun getKitTypeForCart(): List<DatabaseKitType>
+    @Query("select * from databasecart")
+    fun getCart(): LiveData<List<DatabaseCart>>
+    //debug
+    @Query("select * from databasecart")
+    fun getCartDeb(): List<DatabaseCart>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertInCart( kits: List<DatabaseCart>)
 }
 
-@Database(entities = [DatabaseItemType1::class, DatabaseItemType2::class, DatabaseItemType3::class, DatabaseKitType::class], version = 1)
+@Database(entities = [DatabaseItemType1::class, DatabaseItemType2::class, DatabaseItemType3::class, DatabaseKitType::class, DatabaseCart::class], version = 1)
 abstract class Databases:RoomDatabase(){
     abstract val commonDao: CommonDao
 }

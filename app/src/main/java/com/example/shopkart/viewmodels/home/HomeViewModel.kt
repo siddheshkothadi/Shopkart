@@ -3,8 +3,7 @@ package com.example.shopkart.viewmodels.home
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.shopkart.database.*
-import com.example.shopkart.network.*
-import com.example.shopkart.repository.Repository
+import com.example.shopkart.repository.HomeRepository
 import kotlinx.coroutines.*
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
@@ -15,7 +14,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val status: LiveData<ApiStatus>
         get() = _status
 
-    private val repository = Repository(getDatabase(application))
+    private val repository = HomeRepository(getDatabase(application))
 
     val kitTypes = repository.kits
 

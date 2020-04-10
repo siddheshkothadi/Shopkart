@@ -19,7 +19,6 @@ class HomeFragment : Fragment() {
         }
         ViewModelProvider(this, HomeViewModel.Factory(activity.application)).get(HomeViewModel::class.java)
     }
-    //private val viewModel : HomeViewModel = ViewModelProvider(this,HomeViewModel.Factory(activity!!.application)).get(HomeViewModel::class.java)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
