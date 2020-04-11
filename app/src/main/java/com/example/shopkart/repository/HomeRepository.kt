@@ -12,12 +12,19 @@ import kotlinx.coroutines.withContext
 
 class HomeRepository(private val database: Databases) {
 
-    val cartItems: LiveData<List<CartModel>> = Transformations.map(database.commonDao.getCart()){it.asDomainCartModel()}
+    private val kitsForCart = database.commonDao.getKitTypeForCart()
 
-    val kits: LiveData<List<KitTypeModel>> = Transformations.map(database.commonDao.getKitType()){it.asDomainKitTypeModel()}
-    val items1: LiveData<List<ItemTypeModel>> = Transformations.map(database.commonDao.getItemType1()){it.asDomainItemType1Model()}
-    val items2: LiveData<List<ItemTypeModel>> = Transformations.map(database.commonDao.getItemType2()){it.asDomainItemType2Model()}
-    val items3: LiveData<List<ItemTypeModel>> = Transformations.map(database.commonDao.getItemType3()){it.asDomainItemType3Model()}
+    val cartItems: LiveData<List<CartModel>> =
+        Transformations.map(database.commonDao.getCart()) { it.asDomainCartModel() }
+
+    val kits: LiveData<List<KitTypeModel>> =
+        Transformations.map(database.commonDao.getKitType()) { it.asDomainKitTypeModel() }
+    val items1: LiveData<List<ItemTypeModel>> =
+        Transformations.map(database.commonDao.getItemType1()) { it.asDomainItemType1Model() }
+    val items2: LiveData<List<ItemTypeModel>> =
+        Transformations.map(database.commonDao.getItemType2()) { it.asDomainItemType2Model() }
+    val items3: LiveData<List<ItemTypeModel>> =
+        Transformations.map(database.commonDao.getItemType3()) { it.asDomainItemType3Model() }
 
     suspend fun refreshKitsAndItems() {
         withContext(Dispatchers.IO) {
@@ -32,14 +39,20 @@ class HomeRepository(private val database: Databases) {
         }
     }
 
-    suspend fun cartRecView() {
+    suspend fun add1() {
         withContext(Dispatchers.IO) {
-            val kitDatabase = database.commonDao.getKitTypeForCart()
-            database.commonDao.insertInCart(kitDatabase.asDatabaseCartType())
-            val ans = database.commonDao.getCartDeb()
-            val ans1 = database.commonDao.getCart()
-            println("hey $cartItems")
-            println("hey $kits")
+            database.commonDao.insertInCart(kitsForCart[0].asDatabaseCartType())
         }
     }
+    suspend fun add2() {
+        withContext(Dispatchers.IO) {
+            database.commonDao.insertInCart(kitsForCart[1].asDatabaseCartType())
+        }
+    }
+    suspend fun add3() {
+        withContext(Dispatchers.IO) {
+            database.commonDao.insertInCart(kitsForCart[2].asDatabaseCartType())
+        }
+    }
+
 }

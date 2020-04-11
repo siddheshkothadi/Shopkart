@@ -27,6 +27,35 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private var viewModelJob = SupervisorJob()
 
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
+    //private val coroutineScopeInsert = CoroutineScope(viewModelJob + Dispatchers.IO )
+
+   fun addToCart1(){
+        coroutineScope.launch {
+            try {
+                repository.add1()
+            }catch (e:Exception){
+                print("hey error here 1")
+            }
+        }
+    }
+    fun addToCart2(){
+        coroutineScope.launch {
+            try {
+                repository.add2()
+            }catch (e:Exception){
+                print("hey error here 2")
+            }
+        }
+    }
+    fun addToCart3(){
+        coroutineScope.launch {
+            try {
+                repository.add3()
+            }catch (e:Exception){
+                print("hey error here 3")
+            }
+        }
+    }
 
     init {
         refreshDataFromRepository()

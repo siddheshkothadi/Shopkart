@@ -13,30 +13,18 @@ class CartViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = HomeRepository(getDatabase(application))
     val cartItems = repository.cartItems
-    val kits  = repository.kits
 
-    private var viewModelJob = SupervisorJob()
+    /*private var viewModelJob = SupervisorJob()
 
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
 
-    init{
-        functionToBeRun()
-    }
 
-    private fun functionToBeRun() {
-        coroutineScope.launch {
-            try {
-                repository.cartRecView()
-            } catch (e: Exception) {
-            }
-        }
-    }
 
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
     }
-
+*/
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(CartViewModel::class.java)) {
