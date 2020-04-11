@@ -12,8 +12,6 @@ import kotlinx.coroutines.withContext
 
 class HomeRepository(private val database: Databases) {
 
-    private val kitsForCart = database.commonDao.getKitTypeForCart()
-
     val cartItems: LiveData<List<CartModel>> =
         Transformations.map(database.commonDao.getCart()) { it.asDomainCartModel() }
 
@@ -41,17 +39,8 @@ class HomeRepository(private val database: Databases) {
 
     suspend fun add1() {
         withContext(Dispatchers.IO) {
-            database.commonDao.insertInCart(kitsForCart[0].asDatabaseCartType())
-        }
-    }
-    suspend fun add2() {
-        withContext(Dispatchers.IO) {
-            database.commonDao.insertInCart(kitsForCart[1].asDatabaseCartType())
-        }
-    }
-    suspend fun add3() {
-        withContext(Dispatchers.IO) {
-            database.commonDao.insertInCart(kitsForCart[2].asDatabaseCartType())
+            val kitsForCart : DatabaseKitType = database.commonDao.getKitTypeForCart()[0]
+            database.commonDao.insertInCart(kitsForCart.asDatabaseCartType())
         }
     }
 

@@ -38,24 +38,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
-    fun addToCart2(){
-        coroutineScope.launch {
-            try {
-                repository.add2()
-            }catch (e:Exception){
-                print("hey error here 2")
-            }
-        }
-    }
-    fun addToCart3(){
-        coroutineScope.launch {
-            try {
-                repository.add3()
-            }catch (e:Exception){
-                print("hey error here 3")
-            }
-        }
-    }
 
     init {
         refreshDataFromRepository()
