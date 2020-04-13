@@ -17,13 +17,13 @@ class HomeRepository(private val database: Databases) {
     val cartItemsForRecView: LiveData<List<CartModel>> =
         Transformations.map(database.commonDao.getCartForRecView()) { it.asDomainCartModel() }
 
-    private var _bool: MutableLiveData<Boolean>? = null
+    /*private var _bool: MutableLiveData<Boolean>? = null
     val bool: LiveData<Boolean>?
         get() = _bool
 
     init {
         _bool?.value=false
-    }
+    }*/
 
     val kits: LiveData<List<KitTypeModel>> =
         Transformations.map(database.commonDao.getKitType()) { it.asDomainKitTypeModel() }
@@ -51,8 +51,8 @@ class HomeRepository(private val database: Databases) {
         withContext(Dispatchers.IO) {
             val kitsForCart : DatabaseKitType = database.commonDao.getKitTypeForCart()[0]
             database.commonDao.insertInCart(kitsForCart.asDatabaseCartType())
-            _bool?.value=true
-            println("heyy ${bool?.value}")
+           /* _bool?.value=true
+            println("heyy ${bool?.value}")*/
         }
     }
     suspend fun add2() {

@@ -32,7 +32,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val items2 = repository.items2
     val items3 = repository.items3
     val cartItems = repository.cartItemsForRecView
-    val bool = repository.bool
+    //val bool = repository.bool
 
     //coroutines
     private var viewModelJob = SupervisorJob()
@@ -56,7 +56,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private fun visibility(){
+    /*private fun visibility(){
         coroutineScope.launch {
             if (cartItems.value.isNullOrEmpty()) {
                 _added1.value = false
@@ -76,7 +76,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 }
             }
         }
-    }
+    }*/
 
 
     //onClicks

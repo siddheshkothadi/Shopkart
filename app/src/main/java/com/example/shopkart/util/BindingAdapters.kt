@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.shopkart.R
+import com.example.shopkart.databinding.FragmentHomeBinding
 import com.example.shopkart.domain.CartModel
 import com.example.shopkart.domain.ItemTypeModel
 import com.example.shopkart.ui.SpaceItemDecoration
@@ -69,15 +70,41 @@ fun bindRecyclerView(
     val spaceItemDecoration = SpaceItemDecoration(padding)
     recyclerView.addItemDecoration(spaceItemDecoration)
 }
-/*
-@BindingAdapter("cart1R")
-fun bindRecyclerView1(
-    button: ConstraintLayout,
-    added1: Boolean?
+
+@BindingAdapter("button1G","button2R","button2G","button3R","button3G","cart1")
+fun visibility1(
+    button1R: ConstraintLayout,
+    button1G: ConstraintLayout,
+    button2R: ConstraintLayout,
+    button2G: ConstraintLayout,
+    button3R: ConstraintLayout,
+    button3G: ConstraintLayout,
+    cartItems: List<CartModel>?
 ) {
-    if (added1!!){
-        button.visibility=View.GONE
+    if (cartItems.isNullOrEmpty()) {
+        //1
+        button1R.visibility=View.VISIBLE
+        button1G.visibility=View.GONE
+        //2
+        button2R.visibility=View.VISIBLE
+        button2G.visibility=View.GONE
+        //3
+        button3R.visibility=View.VISIBLE
+        button3G.visibility=View.GONE
+    } else {
+        for (items in cartItems) {
+            if (items.id == "1") {
+                button1R.visibility=View.GONE
+                button1G.visibility=View.VISIBLE
+            }
+            if (items.id == "2") {
+                button2R.visibility=View.GONE
+                button2G.visibility=View.VISIBLE
+            }
+            if (items.id == "3") {
+                button3R.visibility=View.GONE
+                button3G.visibility=View.VISIBLE
+            }
+        }
     }
-    else
-        button.visibility=View.VISIBLE
-}*/
+}

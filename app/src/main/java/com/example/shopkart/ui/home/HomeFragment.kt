@@ -34,9 +34,9 @@ class HomeFragment : Fragment() {
         binding.recyclerView1.adapter = ItemAdapter()
         binding.recyclerView2.adapter = ItemAdapter()
         binding.recyclerView3.adapter = ItemAdapter()
-        viewModel.bool?.observe(viewLifecycleOwner, Observer { bool ->
+        /*viewModel.bool?.observe(viewLifecycleOwner, Observer { bool ->
             Toast.makeText(context,"$bool",Toast.LENGTH_LONG).show()
-        })
+        })*/
         return binding.root
     }
 
