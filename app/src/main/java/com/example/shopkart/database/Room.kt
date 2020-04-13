@@ -35,8 +35,10 @@ interface CommonDao{
     //For cart
     @Query("select * from databasekittype")
     fun getKitTypeForCart(): List<DatabaseKitType>
-    @Query("select * from databasecart")
-    fun getCart(): LiveData<List<DatabaseCart>>
+    @Query("select * from databasecart order by id ASC")
+    fun getCartForRecView(): LiveData<List<DatabaseCart>>
+    @Query("select * from databasecart order by id ASC")
+    fun getCart(): List<DatabaseCart>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertInCart( kits: DatabaseCart)
 }

@@ -4,4 +4,5 @@
     <string name="title_dashboard">Cart</string>
     <string name="title_notifications">Account</string>
     <string name="addToCart">ADD TO CART</string>
+    <string name="addedToCart">ADDED TO CART</string>
 </resources>

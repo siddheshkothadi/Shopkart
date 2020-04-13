@@ -1,6 +1,7 @@
 package com.example.shopkart.repository
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.shopkart.database.*
 import com.example.shopkart.domain.CartModel
@@ -8,12 +9,21 @@ import com.example.shopkart.domain.ItemTypeModel
 import com.example.shopkart.domain.KitTypeModel
 import com.example.shopkart.network.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 
 class HomeRepository(private val database: Databases) {
 
-    val cartItems: LiveData<List<CartModel>> =
-        Transformations.map(database.commonDao.getCart()) { it.asDomainCartModel() }
+    val cartItemsForRecView: LiveData<List<CartModel>> =
+        Transformations.map(database.commonDao.getCartForRecView()) { it.asDomainCartModel() }
+
+    private var _bool: MutableLiveData<Boolean>? = null
+    val bool: LiveData<Boolean>?
+        get() = _bool
+
+    init {
+        _bool?.value=false
+    }
 
     val kits: LiveData<List<KitTypeModel>> =
         Transformations.map(database.commonDao.getKitType()) { it.asDomainKitTypeModel() }
@@ -40,6 +50,20 @@ class HomeRepository(private val database: Databases) {
     suspend fun add1() {
         withContext(Dispatchers.IO) {
             val kitsForCart : DatabaseKitType = database.commonDao.getKitTypeForCart()[0]
+            database.commonDao.insertInCart(kitsForCart.asDatabaseCartType())
+            _bool?.value=true
+            println("heyy ${bool?.value}")
+        }
+    }
+    suspend fun add2() {
+        withContext(Dispatchers.IO) {
+            val kitsForCart : DatabaseKitType = database.commonDao.getKitTypeForCart()[1]
+            database.commonDao.insertInCart(kitsForCart.asDatabaseCartType())
+        }
+    }
+    suspend fun add3() {
+        withContext(Dispatchers.IO) {
+            val kitsForCart : DatabaseKitType = database.commonDao.getKitTypeForCart()[2]
             database.commonDao.insertInCart(kitsForCart.asDatabaseCartType())
         }
     }

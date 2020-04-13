@@ -4,15 +4,11 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.shopkart.database.getDatabase
 import com.example.shopkart.repository.HomeRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
 
 class CartViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = HomeRepository(getDatabase(application))
-    val cartItems = repository.cartItems
+    val cartItemsRecView = repository.cartItemsForRecView
 
     /*private var viewModelJob = SupervisorJob()
 

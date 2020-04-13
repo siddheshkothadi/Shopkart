@@ -121,6 +121,7 @@ fun List<DatabaseItemType3>.asDomainItemType3Model(): List<ItemTypeModel> {
 //FOR CART::
 fun DatabaseKitType.asDatabaseCartType(): DatabaseCart{
     return DatabaseCart(
+        id = id,
         name = name,
         imgSrcUrl = imgSrcUrl,
         price = price
@@ -129,6 +130,7 @@ fun DatabaseKitType.asDatabaseCartType(): DatabaseCart{
 fun List<DatabaseCart>.asDomainCartModel(): List<CartModel>{
     return map {
         CartModel(
+            id = it.id,
             name = it.name,
             imgSrcUrl = it.imgSrcUrl,
             price = it.price

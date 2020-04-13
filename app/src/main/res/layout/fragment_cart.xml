@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:padding="@{30}"
-                    app:listCartData="@{viewModel.cartItems}"
+                    app:listCartData="@{viewModel.cartItemsRecView}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -42,6 +42,7 @@ data class DatabaseKitType constructor(
 @Entity
 data class DatabaseCart constructor(
     @PrimaryKey
+    val id: String,
     val name: String,
     val imgSrcUrl: String,
     val price: String)
