@@ -105,7 +105,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/green"
-                            android:clickable="true"
                             android:padding="10dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +114,6 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:clickable="false"
                                 android:padding="8dp"
                                 android:text="@string/addedToCart"
                                 android:textColor="@color/colorPrimaryDark"
@@ -127,7 +125,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:clickable="false"
+                                android:onClick="@{()->viewModel.removeFromCart1()}"
                                 android:src="@drawable/ic_delete_forever_black_24dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -246,7 +244,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/green"
-                            android:clickable="true"
                             android:padding="10dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -256,7 +253,6 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:clickable="false"
                                 android:padding="8dp"
                                 android:text="@string/addedToCart"
                                 android:textColor="@color/colorPrimaryDark"
@@ -267,8 +263,8 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:clickable="false"
                                 android:src="@drawable/ic_delete_forever_black_24dp"
+                                android:onClick="@{()->viewModel.removeFromCart2()}"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -356,7 +352,6 @@
                             android:clickable="true"
                             android:onClick="@{()->viewModel.addToCart3()}"
                             android:padding="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/recyclerView3">
@@ -389,7 +384,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/green"
-                            android:clickable="true"
                             android:padding="10dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -399,7 +393,6 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:clickable="false"
                                 android:padding="8dp"
                                 android:text="@string/addedToCart"
                                 android:textColor="@color/colorPrimaryDark"
@@ -410,8 +403,8 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:clickable="false"
                                 android:src="@drawable/ic_delete_forever_black_24dp"
+                                android:onClick="@{()->viewModel.removeFromCart3()}"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />

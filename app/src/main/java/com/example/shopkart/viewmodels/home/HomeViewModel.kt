@@ -14,17 +14,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     val status: LiveData<ApiStatus>
         get() = _status
 
-    //For visibility
-    private val _added1 = MutableLiveData<Boolean>()
-    val added1: LiveData<Boolean>
-        get() = _added1
-    private val _added2 = MutableLiveData<Boolean>()
-    val added2: LiveData<Boolean>
-        get() = _added2
-    private val _added3 = MutableLiveData<Boolean>()
-    val added3: LiveData<Boolean>
-        get() = _added3
-
     //repository
     private val repository = HomeRepository(getDatabase(application))
     val kitTypes = repository.kits
@@ -41,7 +30,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         refreshDataFromRepository()
-        //visibility()
     }
 
     private fun refreshDataFromRepository() {
@@ -56,55 +44,35 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    /*private fun visibility(){
-        coroutineScope.launch {
-            if (cartItems.value.isNullOrEmpty()) {
-                _added1.value = false
-                _added2.value = false
-                _added3.value = false
-            } else {
-                for (items in cartItems.value!!) {
-                    if (items.id == "1") {
-                        _added1.value = true
-                    }
-                    if (items.id == "2") {
-                        _added2.value = true
-                    }
-                    if (items.id == "3") {
-                        _added3.value = true
-                    }
-                }
-            }
-        }
-    }*/
-
-
     //onClicks
     fun addToCart1(){
         coroutineScope.launch {
-            try {
-                repository.add1()
-            }catch (e:Exception){
-                print("hey error here 1")
-            }
+            repository.add1()
         }
     }
     fun addToCart2(){
         coroutineScope.launch {
-            try {
-                repository.add2()
-            }catch (e:Exception){
-                print("hey error here 1")
-            }
+            repository.add2()
         }
     }
     fun addToCart3(){
         coroutineScope.launch {
-            try {
-                repository.add3()
-            }catch (e:Exception){
-                print("hey error here 1")
-            }
+            repository.add3()
+        }
+    }
+    fun removeFromCart1(){
+        coroutineScope.launch {
+            repository.remove1()
+        }
+    }
+    fun removeFromCart2(){
+        coroutineScope.launch {
+            repository.remove2()
+        }
+    }
+    fun removeFromCart3(){
+        coroutineScope.launch {
+            repository.remove3()
         }
     }
 

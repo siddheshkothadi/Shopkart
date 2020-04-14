@@ -5,4 +5,6 @@
     <string name="title_notifications">Account</string>
     <string name="addToCart">ADD TO CART</string>
     <string name="addedToCart">ADDED TO CART</string>
+    <string name="isEmpty">Your cart is empty :(</string>
+
 </resources>

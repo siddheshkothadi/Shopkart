@@ -8,22 +8,16 @@ import com.example.shopkart.domain.CartModel
 import com.example.shopkart.domain.ItemTypeModel
 import com.example.shopkart.domain.KitTypeModel
 import com.example.shopkart.network.*
+import com.example.shopkart.util.visibility1
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 
 class HomeRepository(private val database: Databases) {
 
-    val cartItemsForRecView: LiveData<List<CartModel>> =
+    var cartItemsForRecView: LiveData<List<CartModel>> =
         Transformations.map(database.commonDao.getCartForRecView()) { it.asDomainCartModel() }
 
-    /*private var _bool: MutableLiveData<Boolean>? = null
-    val bool: LiveData<Boolean>?
-        get() = _bool
-
-    init {
-        _bool?.value=false
-    }*/
 
     val kits: LiveData<List<KitTypeModel>> =
         Transformations.map(database.commonDao.getKitType()) { it.asDomainKitTypeModel() }
@@ -51,8 +45,6 @@ class HomeRepository(private val database: Databases) {
         withContext(Dispatchers.IO) {
             val kitsForCart : DatabaseKitType = database.commonDao.getKitTypeForCart()[0]
             database.commonDao.insertInCart(kitsForCart.asDatabaseCartType())
-           /* _bool?.value=true
-            println("heyy ${bool?.value}")*/
         }
     }
     suspend fun add2() {
@@ -65,6 +57,22 @@ class HomeRepository(private val database: Databases) {
         withContext(Dispatchers.IO) {
             val kitsForCart : DatabaseKitType = database.commonDao.getKitTypeForCart()[2]
             database.commonDao.insertInCart(kitsForCart.asDatabaseCartType())
+        }
+    }
+
+    suspend fun remove1() {
+        withContext(Dispatchers.IO) {
+            database.commonDao.remove1()
+        }
+    }
+    suspend fun remove2() {
+        withContext(Dispatchers.IO) {
+            database.commonDao.remove2()
+        }
+    }
+    suspend fun remove3() {
+        withContext(Dispatchers.IO) {
+            database.commonDao.remove3()
         }
     }
 
