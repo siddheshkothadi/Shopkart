@@ -6,5 +6,7 @@
     <string name="addToCart">ADD TO CART</string>
     <string name="addedToCart">ADDED TO CART</string>
     <string name="isEmpty">Your cart is empty :(</string>
+    <string name="x1">x1</string>
+    <string name="pay">Pay</string>
 
 </resources>

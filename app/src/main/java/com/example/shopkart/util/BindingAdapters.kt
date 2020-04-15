@@ -9,14 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.shopkart.R
-import com.example.shopkart.databinding.FragmentHomeBinding
 import com.example.shopkart.domain.CartModel
 import com.example.shopkart.domain.ItemTypeModel
 import com.example.shopkart.ui.SpaceItemDecoration
+import com.example.shopkart.ui.SpaceItemDecorationCart
 import com.example.shopkart.ui.cart.CartAdapter
 import com.example.shopkart.ui.home.ItemAdapter
 import com.example.shopkart.viewmodels.home.HomeViewModel
-import java.lang.NullPointerException
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -125,16 +124,31 @@ fun bindCartRecyclerView(
     adapter.submitList(data)
 }
 
-@BindingAdapter("emptyCart")
+@BindingAdapter("paddingCart")
+fun bindRecyclerViewCart(
+    recyclerView: RecyclerView,
+    padding: Int
+) {
+    val spaceItemDecoration = SpaceItemDecorationCart(padding)
+    recyclerView.addItemDecoration(spaceItemDecoration)
+}
+
+@BindingAdapter("recView","payButton","emptyCart")
 fun emptyCart(
     layout: LinearLayout,
+    recView: ConstraintLayout,
+    pay: ConstraintLayout,
     data: List<CartModel>?
 ) {
     if (data.isNullOrEmpty()){
         layout.visibility = View.VISIBLE
+        recView.visibility = View.GONE
+        pay.visibility = View.GONE
     }
     else{
         layout.visibility = View.GONE
+        recView.visibility = View.VISIBLE
+        pay.visibility = View.VISIBLE
     }
 }
 
@@ -155,5 +169,6 @@ fun totalBill(
         }
     }
     println("heyy final $sum")
-    price.text=sum.toString()
+    val totalBill: String = "Total Bill: ₹$sum"
+    price.text = totalBill
 }

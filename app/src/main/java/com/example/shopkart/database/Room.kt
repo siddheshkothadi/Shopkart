@@ -35,7 +35,7 @@ interface CommonDao{
     //For cart
     @Query("select * from databasekittype")
     fun getKitTypeForCart(): MutableList<DatabaseKitType>
-    @Query("select * from databasecart order by id ASC")
+    @Query("select * from databasecart")
     fun getCartForRecView(): LiveData<List<DatabaseCart>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertInCart( kits: DatabaseCart)
@@ -45,6 +45,7 @@ interface CommonDao{
     fun remove2()
     @Query("delete from databasecart where id=3")
     fun remove3()
+    
 }
 
 @Database(entities = [DatabaseItemType1::class, DatabaseItemType2::class, DatabaseItemType3::class, DatabaseKitType::class, DatabaseCart::class], version = 1)
