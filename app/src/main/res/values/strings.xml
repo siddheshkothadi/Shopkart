@@ -8,5 +8,6 @@
     <string name="isEmpty">Your cart is empty :(</string>
     <string name="x1">x1</string>
     <string name="pay">Pay</string>
+    <string name="orders">Your Orders</string>
 
 </resources>

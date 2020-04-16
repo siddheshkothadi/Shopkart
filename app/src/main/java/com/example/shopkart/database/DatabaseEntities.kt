@@ -46,3 +46,10 @@ data class DatabaseCart constructor(
     val name: String,
     val imgSrcUrl: String,
     val price: String)
+
+//For Account
+@Entity
+data class DatabaseAccount constructor(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
+    val price: Int)

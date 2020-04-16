@@ -1,6 +1,7 @@
 package com.example.shopkart.network
 
 import com.example.shopkart.database.*
+import com.example.shopkart.domain.AccountModel
 import com.example.shopkart.domain.CartModel
 import com.example.shopkart.domain.ItemTypeModel
 import com.example.shopkart.domain.KitTypeModel
@@ -133,6 +134,16 @@ fun List<DatabaseCart>.asDomainCartModel(): List<CartModel>{
             id = it.id,
             name = it.name,
             imgSrcUrl = it.imgSrcUrl,
+            price = it.price
+        )
+    }
+}
+
+//For Account
+fun List<DatabaseAccount>.asDomainAccountModel(): List<AccountModel>{
+    return map {
+        AccountModel(
+            id = it.id,
             price = it.price
         )
     }

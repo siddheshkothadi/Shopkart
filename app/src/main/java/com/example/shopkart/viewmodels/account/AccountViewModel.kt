@@ -1,13 +1,30 @@
 package com.example.shopkart.viewmodels.account
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.shopkart.database.getDatabase
+import com.example.shopkart.repository.HomeRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 
-class AccountViewModel : ViewModel() {
+class AccountViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+    private val repository = HomeRepository(getDatabase(application))
+
+    val orders = repository.orders
+
+    private var viewModelJob = SupervisorJob()
+
+    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main )
+
+    class Factory(val app: Application) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(AccountViewModel::class.java)) {
+                @Suppress("UNCHECKED_CAST")
+                return AccountViewModel(app) as T
+            }
+            throw IllegalArgumentException("Unable to construct viewmodel")
+        }
     }
-    val text: LiveData<String> = _text
 }

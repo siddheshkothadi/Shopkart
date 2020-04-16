@@ -45,10 +45,21 @@ interface CommonDao{
     fun remove2()
     @Query("delete from databasecart where id=3")
     fun remove3()
-    
+    @Query("delete from databasecart")
+    fun deleteAll()
+
+    //For account
+    @Query("select * from databasecart")
+    fun getCartForAccount(): List<DatabaseCart>
+    @Query("select * from databaseaccount")
+    fun getAccount(): LiveData<List<DatabaseAccount>>
+    @Query("select * from databaseaccount")
+    fun getAccountForDebug(): List<DatabaseAccount>
+    @Query("insert into databaseaccount values(null,:item)")
+    fun insertAccount(item: Int)
 }
 
-@Database(entities = [DatabaseItemType1::class, DatabaseItemType2::class, DatabaseItemType3::class, DatabaseKitType::class, DatabaseCart::class], version = 1)
+@Database(entities = [DatabaseItemType1::class, DatabaseItemType2::class, DatabaseItemType3::class, DatabaseKitType::class, DatabaseCart::class, DatabaseAccount::class], version = 1)
 abstract class Databases:RoomDatabase(){
     abstract val commonDao: CommonDao
 }

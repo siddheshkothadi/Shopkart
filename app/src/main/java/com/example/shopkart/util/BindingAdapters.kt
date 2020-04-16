@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.shopkart.R
+import com.example.shopkart.domain.AccountModel
 import com.example.shopkart.domain.CartModel
 import com.example.shopkart.domain.ItemTypeModel
 import com.example.shopkart.ui.SpaceItemDecoration
 import com.example.shopkart.ui.SpaceItemDecorationCart
+import com.example.shopkart.ui.account.AccountAdapter
 import com.example.shopkart.ui.cart.CartAdapter
 import com.example.shopkart.ui.home.ItemAdapter
 import com.example.shopkart.viewmodels.home.HomeViewModel
@@ -171,4 +173,14 @@ fun totalBill(
     println("heyy final $sum")
     val totalBill: String = "Total Bill: ₹$sum"
     price.text = totalBill
+}
+
+//For Account
+@BindingAdapter("listAccount")
+fun bindAccountRecyclerView(
+    recyclerView: RecyclerView,
+    data: List<AccountModel>?
+) {
+    val adapter = recyclerView.adapter as AccountAdapter
+    adapter.submitList(data)
 }
