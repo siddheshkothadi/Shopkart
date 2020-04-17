@@ -39,12 +39,8 @@ interface CommonDao{
     fun getCartForRecView(): LiveData<List<DatabaseCart>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertInCart( kits: DatabaseCart)
-    @Query("delete from databasecart where id=1")
-    fun remove1()
-    @Query("delete from databasecart where id=2")
-    fun remove2()
-    @Query("delete from databasecart where id=3")
-    fun remove3()
+    @Query("delete from databasecart where id=:id")
+    fun remove(id: Int)
     @Query("delete from databasecart")
     fun deleteAll()
 

@@ -45,34 +45,14 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     //onClicks
-    fun addToCart1(){
+    fun addToCart(id: Int){
         coroutineScope.launch {
-            repository.add1()
+            repository.add(id)
         }
     }
-    fun addToCart2(){
+    fun removeFromCart(id: Int) {
         coroutineScope.launch {
-            repository.add2()
-        }
-    }
-    fun addToCart3(){
-        coroutineScope.launch {
-            repository.add3()
-        }
-    }
-    fun removeFromCart1(){
-        coroutineScope.launch {
-            repository.remove1()
-        }
-    }
-    fun removeFromCart2(){
-        coroutineScope.launch {
-            repository.remove2()
-        }
-    }
-    fun removeFromCart3(){
-        coroutineScope.launch {
-            repository.remove3()
+            repository.remove(id)
         }
     }
 

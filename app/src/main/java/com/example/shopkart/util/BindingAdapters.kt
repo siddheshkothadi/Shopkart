@@ -19,6 +19,7 @@ import com.example.shopkart.ui.cart.CartAdapter
 import com.example.shopkart.ui.home.ItemAdapter
 import com.example.shopkart.viewmodels.home.HomeViewModel
 
+//Loading image using Glide
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
@@ -35,6 +36,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     }
 }
 
+//For Home Fragment
 @BindingAdapter("listData")
 fun bindRecyclerView(
     recyclerView: RecyclerView,
@@ -43,16 +45,6 @@ fun bindRecyclerView(
     val adapter = recyclerView.adapter as ItemAdapter
     adapter.submitList(data)
 }
-
-@BindingAdapter("apiStatus")
-fun bindStatus(progressBar: ProgressBar, status: HomeViewModel.ApiStatus?) {
-    when (status) {
-        HomeViewModel.ApiStatus.DONE -> progressBar.visibility = View.GONE
-        HomeViewModel.ApiStatus.LOADING -> progressBar.visibility = View.VISIBLE
-        HomeViewModel.ApiStatus.ERROR -> progressBar.visibility = View.GONE
-    }
-}
-
 @BindingAdapter("padding")
 fun bindRecyclerView(
     recyclerView: RecyclerView,
@@ -61,7 +53,14 @@ fun bindRecyclerView(
     val spaceItemDecoration = SpaceItemDecoration(padding)
     recyclerView.addItemDecoration(spaceItemDecoration)
 }
-
+@BindingAdapter("apiStatus")
+fun bindStatus(progressBar: ProgressBar, status: HomeViewModel.ApiStatus?) {
+    when (status) {
+        HomeViewModel.ApiStatus.DONE -> progressBar.visibility = View.GONE
+        HomeViewModel.ApiStatus.LOADING -> progressBar.visibility = View.VISIBLE
+        HomeViewModel.ApiStatus.ERROR -> progressBar.visibility = View.GONE
+    }
+}
 @BindingAdapter("button1G","button2R","button2G","button3R","button3G","cart1")
 fun visibility1(
     button1R: ConstraintLayout,
@@ -116,7 +115,7 @@ fun visibility1(
     }
 }
 
-//Cart
+//For Cart Fragment
 @BindingAdapter("listCartData")
 fun bindCartRecyclerView(
     recyclerView: RecyclerView,
@@ -125,7 +124,6 @@ fun bindCartRecyclerView(
     val adapter = recyclerView.adapter as CartAdapter
     adapter.submitList(data)
 }
-
 @BindingAdapter("paddingCart")
 fun bindRecyclerViewCart(
     recyclerView: RecyclerView,
@@ -134,7 +132,6 @@ fun bindRecyclerViewCart(
     val spaceItemDecoration = SpaceItemDecorationCart(padding)
     recyclerView.addItemDecoration(spaceItemDecoration)
 }
-
 @BindingAdapter("recView","payButton","emptyCart")
 fun emptyCart(
     layout: LinearLayout,
@@ -153,7 +150,6 @@ fun emptyCart(
         pay.visibility = View.VISIBLE
     }
 }
-
 @BindingAdapter("bill")
 fun totalBill(
     price: TextView,
@@ -173,6 +169,18 @@ fun totalBill(
     println("heyy final $sum")
     val totalBill: String = "Total Bill: ₹$sum"
     price.text = totalBill
+}
+@BindingAdapter("payment")
+fun paymentLoading(
+    progressBar: ProgressBar,
+    loading: Boolean
+) {
+    if (loading){
+        progressBar.visibility = View.VISIBLE
+    }
+    else{
+        progressBar.visibility = View.GONE
+    }
 }
 
 //For Account
