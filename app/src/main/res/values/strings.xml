@@ -4,4 +4,10 @@
     <string name="title_dashboard">Cart</string>
     <string name="title_notifications">Account</string>
     <string name="addToCart">ADD TO CART</string>
+    <string name="addedToCart">ADDED TO CART</string>
+    <string name="isEmpty">Your cart is empty :(</string>
+    <string name="x1">x1</string>
+    <string name="pay">Pay</string>
+    <string name="orders">Your Orders</string>
+
 </resources>

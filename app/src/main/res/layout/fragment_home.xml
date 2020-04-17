@@ -63,10 +63,16 @@
                             android:id="@+id/linearLayout1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/addToCart"
+                            android:background="@color/colorPrimary"
                             android:clickable="true"
+                            android:onClick="@{()->viewModel.addToCart(1)}"
+                            app:button1G="@{added1}"
+                            app:button2R="@{linearLayout2}"
+                            app:button2G="@{added2}"
+                            app:button3R="@{linearLayout3}"
+                            app:button3G="@{added3}"
+                            app:cart1="@{viewModel.cartItems}"
                             android:padding="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/recyclerView1">
@@ -89,6 +95,38 @@
                                 android:layout_height="wrap_content"
                                 android:clickable="false"
                                 android:src="@drawable/ic_arrow_forward_black_24dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/added1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/green"
+                            android:padding="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="@string/addedToCart"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="16sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:onClick="@{()->viewModel.removeFromCart(1)}"
+                                android:src="@drawable/ic_delete_forever_black_24dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -170,10 +208,10 @@
                             android:id="@+id/linearLayout2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/addToCart"
+                            android:background="@color/colorPrimary"
                             android:clickable="true"
                             android:padding="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:onClick="@{()->viewModel.addToCart(2)}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/recyclerView2">
@@ -196,6 +234,37 @@
                                 android:layout_height="wrap_content"
                                 android:clickable="false"
                                 android:src="@drawable/ic_arrow_forward_black_24dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/added2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/green"
+                            android:padding="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="@string/addedToCart"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="16sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_delete_forever_black_24dp"
+                                android:onClick="@{()->viewModel.removeFromCart(2)}"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -279,10 +348,10 @@
                             android:id="@+id/linearLayout3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/addToCart"
+                            android:background="@color/colorPrimary"
                             android:clickable="true"
+                            android:onClick="@{()->viewModel.addToCart(3)}"
                             android:padding="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/recyclerView3">
@@ -305,6 +374,37 @@
                                 android:layout_height="wrap_content"
                                 android:clickable="false"
                                 android:src="@drawable/ic_arrow_forward_black_24dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/added3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/green"
+                            android:padding="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="@string/addedToCart"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="16sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_delete_forever_black_24dp"
+                                android:onClick="@{()->viewModel.removeFromCart(3)}"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />

@@ -31,9 +31,31 @@ interface CommonDao{
     fun getKitType(): LiveData<List<DatabaseKitType>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllKits( kits: List<DatabaseKitType>)
+
+    //For cart
+    @Query("select * from databasekittype")
+    fun getKitTypeForCart(): MutableList<DatabaseKitType>
+    @Query("select * from databasecart")
+    fun getCartForRecView(): LiveData<List<DatabaseCart>>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertInCart( kits: DatabaseCart)
+    @Query("delete from databasecart where id=:id")
+    fun remove(id: Int)
+    @Query("delete from databasecart")
+    fun deleteAll()
+
+    //For account
+    @Query("select * from databasecart")
+    fun getCartForAccount(): List<DatabaseCart>
+    @Query("select * from databaseaccount")
+    fun getAccount(): LiveData<List<DatabaseAccount>>
+    @Query("select * from databaseaccount")
+    fun getAccountForDebug(): List<DatabaseAccount>
+    @Query("insert into databaseaccount values(null,:item)")
+    fun insertAccount(item: Int)
 }
 
-@Database(entities = [DatabaseItemType1::class, DatabaseItemType2::class, DatabaseItemType3::class, DatabaseKitType::class], version = 1)
+@Database(entities = [DatabaseItemType1::class, DatabaseItemType2::class, DatabaseItemType3::class, DatabaseKitType::class, DatabaseCart::class, DatabaseAccount::class], version = 1)
 abstract class Databases:RoomDatabase(){
     abstract val commonDao: CommonDao
 }

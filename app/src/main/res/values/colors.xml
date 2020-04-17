@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#000000</color>
     <color name="addToCart">#D21F3C</color>
-    <color name="green">#008000</color>
+    <color name="green">#33a532</color>
+    <color name="silver">#A9A9A9</color>
 </resources>
