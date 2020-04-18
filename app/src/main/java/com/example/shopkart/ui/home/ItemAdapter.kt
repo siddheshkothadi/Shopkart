@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shopkart.databinding.GridViewItemBinding
-import com.example.shopkart.domain.ItemTypeModel
-import com.example.shopkart.network.ItemType
+import com.example.shopkart.model.ItemTypeModel
 
 class ItemAdapter : ListAdapter<ItemTypeModel, ItemAdapter.ItemViewHolder>(DiffCallback) {
 

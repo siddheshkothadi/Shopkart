@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.shopkart.R
-import com.example.shopkart.domain.AccountModel
-import com.example.shopkart.domain.CartModel
-import com.example.shopkart.domain.ItemTypeModel
+import com.example.shopkart.model.AccountModel
+import com.example.shopkart.model.CartModel
+import com.example.shopkart.model.ItemTypeModel
 import com.example.shopkart.ui.SpaceItemDecoration
 import com.example.shopkart.ui.SpaceItemDecorationCart
 import com.example.shopkart.ui.account.AccountAdapter
@@ -161,12 +161,9 @@ fun totalBill(
     }
     else {
         for (items in list){
-            println("heyy before $sum")
             sum += items.price.substring(1).toInt()
-            println("heyy after $sum")
         }
     }
-    println("heyy final $sum")
     val totalBill: String = "Total Bill: ₹$sum"
     price.text = totalBill
 }

@@ -1,4 +1,4 @@
-package com.example.shopkart.domain
+package com.example.shopkart.model
 
 data class AccountModel (
     val id: Int,

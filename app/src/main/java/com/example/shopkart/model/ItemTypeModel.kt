@@ -1,6 +1,6 @@
-package com.example.shopkart.domain
+package com.example.shopkart.model
 
-data class CartModel (
+data class ItemTypeModel (
     val id: String,
     val name: String,
     val imgSrcUrl: String,

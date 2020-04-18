@@ -1,4 +1,4 @@
-package com.example.shopkart.domain
+package com.example.shopkart.model
 
 data class KitTypeModel(
     val id: String,

@@ -1,13 +1,12 @@
 package com.example.shopkart.network
 
 import com.example.shopkart.database.*
-import com.example.shopkart.domain.AccountModel
-import com.example.shopkart.domain.CartModel
-import com.example.shopkart.domain.ItemTypeModel
-import com.example.shopkart.domain.KitTypeModel
+import com.example.shopkart.model.AccountModel
+import com.example.shopkart.model.CartModel
+import com.example.shopkart.model.ItemTypeModel
+import com.example.shopkart.model.KitTypeModel
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import org.w3c.dom.ls.LSInput
 
 @JsonClass(generateAdapter = true)
 data class NetworkKitContainer(val kits: List<KitType>)

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="order"
-            type="com.example.shopkart.domain.AccountModel" />
+            type="com.example.shopkart.model.AccountModel" />
     </data>
 
     <androidx.cardview.widget.CardView
