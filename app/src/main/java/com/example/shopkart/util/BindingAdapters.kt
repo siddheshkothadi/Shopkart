@@ -56,9 +56,13 @@ fun bindRecyclerView(
 @BindingAdapter("apiStatus")
 fun bindStatus(progressBar: ProgressBar, status: HomeViewModel.ApiStatus?) {
     when (status) {
-        HomeViewModel.ApiStatus.DONE -> progressBar.visibility = View.GONE
-        HomeViewModel.ApiStatus.LOADING -> progressBar.visibility = View.VISIBLE
-        HomeViewModel.ApiStatus.ERROR -> progressBar.visibility = View.GONE
+        HomeViewModel.ApiStatus.DONE ->
+            progressBar.visibility = View.GONE
+        HomeViewModel.ApiStatus.LOADING ->
+            progressBar.visibility = View.VISIBLE
+        HomeViewModel.ApiStatus.ERROR ->
+            progressBar.visibility = View.GONE
+
     }
 }
 @BindingAdapter("button1G","button2R","button2G","button3R","button3G","cart1")
