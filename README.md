@@ -14,8 +14,8 @@
 
 ## Built With
 <ul>
-  <li><b>Kotlin</b></li>
-  <li><b>Data Binding</b></li>
+  <li><a href="https://kotlinlang.org/docs/reference/android-overview.html"><b>Kotlin</b></a></li>
+  <li><a href="https://developer.android.com/topic/libraries/data-binding"><b>Data Binding</b></a></li>
   <li><b>Android Architecture Components:</b>
     <ul>
       <li><b>LiveData</b></li>
