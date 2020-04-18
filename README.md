@@ -5,3 +5,8 @@
 </p>
 <img src="https://media.giphy.com/media/RIqldVayfprKo7ETpa/giphy.gif"/>
 <img src="https://media.giphy.com/media/eGscVYTAboM2MoBZ4j/giphy.gif"/>
+
+## License
+<p>
+  This project is licensed under the MIT License - see the LICENSE.md file for details
+</p>
