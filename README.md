@@ -15,18 +15,17 @@
 ## Built With
 <ul>
   <li><a href="https://kotlinlang.org/docs/reference/android-overview.html"><b>Kotlin</b></a></li>
-  <li><a href="https://developer.android.com/topic/libraries/data-binding"><b>Data Binding</b></a></li>
-  <li><b>Android Architecture Components:</b>
+  <li><a href="https://developer.android.com/jetpack/docs/guide"><b>Android Architecture Components:</b></a>
     <ul>
-      <li><b>LiveData</b></li>
-      <li><b>ViewModel</b></li>
-      <li><b>Repository</b></li>
-      <li><b>Room</b></li>
+      <li><a href="https://developer.android.com/topic/libraries/data-binding"><b>Data Binding</b></a></li>
+      <li><a href="https://developer.android.com/topic/libraries/architecture/livedata"><b>LiveData</b></a></li>
+      <li><a href="https://developer.android.com/reference/androidx/lifecycle/ViewModel"><b>ViewModel</b></a></li>
+      <li><a href="https://developer.android.com/topic/libraries/architecture/room"><b>Room</b></a></li>
     </ul>
   </li>
-  <li><b>Retrofit</b></li>
-  <li><b>Moshi</b></li>
-  <li><b>Glide</b></li>
+  <li><a href="https://square.github.io/retrofit/"><b>Retrofit</b></a></li>
+  <li><a href="https://github.com/square/moshi"><b>Moshi</b></a></li>
+  <li><a href="https://github.com/bumptech/glide"><b>Glide</b></a></li>
 </ul>
 
 ## App Preview
