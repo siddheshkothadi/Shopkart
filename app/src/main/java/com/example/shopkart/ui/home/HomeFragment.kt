@@ -19,7 +19,6 @@ class HomeFragment : Fragment() {
 
     private val viewModel : HomeViewModel by lazy {
         val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onActivityCreated()"
         }
         ViewModelProvider(this, HomeViewModel.Factory(activity.application)).get(HomeViewModel::class.java)
     }
@@ -34,9 +33,6 @@ class HomeFragment : Fragment() {
         binding.recyclerView1.adapter = ItemAdapter()
         binding.recyclerView2.adapter = ItemAdapter()
         binding.recyclerView3.adapter = ItemAdapter()
-        /*viewModel.bool?.observe(viewLifecycleOwner, Observer { bool ->
-            Toast.makeText(context,"$bool",Toast.LENGTH_LONG).show()
-        })*/
         return binding.root
     }
 
