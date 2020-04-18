@@ -16,6 +16,16 @@
   You can download the apk <a href="https://github.com/siddheshkothadi/Shopkart/raw/master/apk/app-debug.apk">here</a>.
 </p>
 
+## App Preview
+<p align="center">
+<span align="center">
+    <img src="https://media.giphy.com/media/RIqldVayfprKo7ETpa/giphy.gif"/>
+    &nbsp;
+    <img src="https://media.giphy.com/media/eGscVYTAboM2MoBZ4j/giphy.gif"/>
+</span>
+</p>
+
+
 ## Built With
 <ul>
   <li><a href="https://kotlinlang.org/docs/reference/android-overview.html"><b>Kotlin</b></a></li>
@@ -31,15 +41,6 @@
   <li><a href="https://github.com/square/moshi"><b>Moshi</b></a></li>
   <li><a href="https://github.com/bumptech/glide"><b>Glide</b></a></li>
 </ul>
-
-## App Preview
-<p align="center">
-<span align="center">
-    <img src="https://media.giphy.com/media/RIqldVayfprKo7ETpa/giphy.gif"/>
-    &nbsp;
-    <img src="https://media.giphy.com/media/eGscVYTAboM2MoBZ4j/giphy.gif"/>
-</span>
-</p>
 
 ## License
 <p>
