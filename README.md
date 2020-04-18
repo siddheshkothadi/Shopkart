@@ -6,6 +6,7 @@
 <p align="center">
 <span align="center">
     <img src="https://media.giphy.com/media/RIqldVayfprKo7ETpa/giphy.gif"/>
+    &nbsp;
     <img src="https://media.giphy.com/media/eGscVYTAboM2MoBZ4j/giphy.gif"/>
 </span>
 </p>
