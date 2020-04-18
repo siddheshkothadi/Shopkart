@@ -8,12 +8,6 @@ import com.example.shopkart.model.KitTypeModel
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
-data class NetworkKitContainer(val kits: List<KitType>)
-
-@JsonClass(generateAdapter = true)
-data class NetworkItemContainer(val items: List<ItemType>)
-
 
 @JsonClass(generateAdapter = true)
 data class KitType(

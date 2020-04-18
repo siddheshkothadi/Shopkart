@@ -17,7 +17,6 @@ class CartFragment : Fragment() {
 
     private val viewModel : CartViewModel by lazy {
         val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onActivityCreated()"
         }
         ViewModelProvider(this, CartViewModel.Factory(activity.application)).get(CartViewModel::class.java)
     }

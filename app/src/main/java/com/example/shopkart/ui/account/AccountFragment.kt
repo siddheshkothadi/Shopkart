@@ -17,7 +17,6 @@ class AccountFragment : Fragment() {
 
     private val viewModel: AccountViewModel by lazy {
         val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onActivityCreated()"
         }
         ViewModelProvider(
             this,
