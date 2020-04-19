@@ -12,9 +12,9 @@
   Data loaded from the network is stored inside the room database (SQLite database).
   Also, it has some simple functionalities like <b>add to cart</b> and <b>order history</b>.
 </p>
-<p>
+<!--p>
   You can download the apk <a href="https://github.com/siddheshkothadi/Shopkart/raw/master/apk/app-debug.apk">here</a>.
-</p>
+</p-->
 
 ## App Preview
 <p align="center">
