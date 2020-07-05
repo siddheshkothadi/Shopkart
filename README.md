@@ -4,7 +4,7 @@
 ## A simple android app built using MVVM architecture.
 
 <p align="center">
-  <img src="https://github.com/siddheshkothadi/Shopkart/blob/master/screenshot/1587207832845.png" width="35%" height="auto"/>
+  <img src="https://github.com/siddheshkothadi/Shopkart/blob/master/screenshot/1587207832845.png" width="45%" height="auto"/>
 </p>
 
 ## About
