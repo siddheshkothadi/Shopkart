@@ -3,6 +3,8 @@
 # Shopkart
 ## A simple android app built using MVVM architecture.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 <p align="center">
   <img src="https://github.com/siddheshkothadi/Shopkart/blob/master/screenshot/1587207832845.png" width="45%" height="auto"/>
 </p>
