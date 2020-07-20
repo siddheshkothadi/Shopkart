@@ -4,24 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.shopkart.R
 import com.example.shopkart.databinding.FragmentAccountBinding
 import com.example.shopkart.viewmodels.account.AccountViewModel
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.core.parameter.parametersOf
 
 class AccountFragment : Fragment() {
 
-    private val viewModel: AccountViewModel by lazy {
-        val activity = requireNotNull(this.activity) {
-        }
-        ViewModelProvider(
-            this,
-            AccountViewModel.Factory(activity.application)
-        ).get(AccountViewModel::class.java)
+    lateinit var viewModel: AccountViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = getViewModel { parametersOf() }
     }
 
     override fun onCreateView(
