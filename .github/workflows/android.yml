@@ -17,7 +17,7 @@ jobs:
       - name: permission
         run: chmod +x script.sh
       - name: run script
-        run: ./script.sh
+        run: echo ${{ github.workspace }}
 
 #  build:
 #     name: Build and Generate APK
