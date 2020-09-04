@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ master ]
 
+jobs:
+
   build:
     name: Build and Generate APK
     runs-on: ubuntu-latest
