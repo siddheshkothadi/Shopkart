@@ -34,6 +34,12 @@ jobs:
     - name: Copy apk to home (~)
       run: cp ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk ~
     
+    - name: git config name
+      run: git config --global user.name "siddheshkothadi"
+    
+    - name: git config email
+      run: git config --global user.email "realsiddheshko@gmail.com"
+    
     - name: git fetch
       run: git fetch origin
     
