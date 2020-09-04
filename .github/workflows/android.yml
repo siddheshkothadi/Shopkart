@@ -14,9 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         
-      - name: cd
+      - name: permission
         run: chmod +x script.sh
-            ./script.sh
+      - name: run script
+        run: ./script.sh
 
 #  build:
 #     name: Build and Generate APK
