@@ -7,6 +7,15 @@ on:
     branches: [ master ]
 
 jobs:
+  build:
+    name: ls
+    runs-on: ununtu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: cd
+        run: ./script.sh
 
 #  build:
 #     name: Build and Generate APK
@@ -32,5 +41,5 @@ jobs:
 #         name: App
 #         path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
     
-    - name: Make a branch
-      run: ./script.sh
+#     - name: Make a branch
+#       run: ./script.sh
