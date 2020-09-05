@@ -53,7 +53,7 @@ jobs:
       run: git add app-debug.apk
     
     - name: git commit
-      run: git commit -m "thiss"
+      run: git commit -m "apk"
     
     - name: git push
       run: git push origin
