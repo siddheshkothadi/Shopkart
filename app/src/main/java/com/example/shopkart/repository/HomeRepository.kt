@@ -2,7 +2,7 @@ package com.example.shopkart.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.example.shopkart.database.*
+import com.example.shopkart.database.Databases
 import com.example.shopkart.model.AccountModel
 import com.example.shopkart.model.CartModel
 import com.example.shopkart.model.ItemTypeModel
@@ -33,10 +33,12 @@ class HomeRepository(private val database: Databases) {
             val listItems1Network = Api.retrofitService.getItems1Async().await()
             val listItems2Network = Api.retrofitService.getItems2Async().await()
             val listItems3Network = Api.retrofitService.getItems3Async().await()
-            database.commonDao.insertAllKits(kitNetwork.asDatabaseKitType())
-            database.commonDao.insertAllItems1(listItems1Network.asDatabaseItemType1())
-            database.commonDao.insertAllItems2(listItems2Network.asDatabaseItemType2())
-            database.commonDao.insertAllItems3(listItems3Network.asDatabaseItemType3())
+            with(database.commonDao) {
+                insertAllKits(kitNetwork.asDatabaseKitType())
+                insertAllItems1(listItems1Network.asDatabaseItemType1())
+                insertAllItems2(listItems2Network.asDatabaseItemType2())
+                insertAllItems3(listItems3Network.asDatabaseItemType3())
+            }
         }
     }
 
@@ -56,19 +58,10 @@ class HomeRepository(private val database: Databases) {
     suspend fun deleteAll() {
         withContext(Dispatchers.IO) {
             val listCart = database.commonDao.getCartForAccount()
-            val price = calculateTotalBill(listCart)
+            val price = listCart.sumBy { it.price.substring(1).toInt() }
             database.commonDao.insertAccount(price)
             delay(2200)
             database.commonDao.deleteAll()
         }
     }
-
-    private fun calculateTotalBill(listCart : List<DatabaseCart>): Int{
-        var sum = 0
-        for (items in listCart) {
-            sum += items.price.substring(1).toInt()
-        }
-        return sum
-    }
-
 }
