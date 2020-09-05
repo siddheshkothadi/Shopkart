@@ -55,5 +55,5 @@ jobs:
     - name: git commit
       run: git commit -m "apk"
     
-    - name: git push
-      run: git push origin
+#    - name: git push
+#      run: git push origin
