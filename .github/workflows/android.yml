@@ -1,10 +1,9 @@
- 
-name: Build
+name: Build and generate artifacts
 on: [push, pull_request]
 
 jobs:
   build_apk:
-    name: Generate APK
+    name: Generate APK artifacts
     runs-on: ubuntu-latest
 
     steps:
@@ -27,9 +26,9 @@ jobs:
       - name: Grant Permission to Execute
         run: chmod +x gradlew
         
-      - name: Build debug APK
-        run: bash ./gradlew assembleDebug --stacktrace
-      - name: Upload APK
+      - name: Build
+        run: bash ./gradlew build --stacktrace
+      - name: Upload APK to artifacts
         uses: actions/upload-artifact@v2
         with:
           name: app
