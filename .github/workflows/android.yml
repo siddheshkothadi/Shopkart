@@ -39,4 +39,4 @@ jobs:
         uses: actions/download-artifact@v2.0.5
         with:
           # Artifact name
-          name: debug-apk
+          name: app
