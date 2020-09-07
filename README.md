@@ -1,7 +1,7 @@
 
 
 # Shopkart
-## A simple android app built using MVVM architecture
+## A simple android app built using MVVM architecture.
 
 ![Android CI](https://github.com/siddheshkothadi/Shopkart/workflows/Android%20CI/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
