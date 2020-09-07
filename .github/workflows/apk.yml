@@ -27,9 +27,7 @@ jobs:
             ${{ runner.os }}-gradle-
       
       - name: Grant Permissions to Execute
-        run: |
-          chmod +x gradlew
-          chmod +x script.sh
+        run: chmod +x gradlew
         
       - name: Generate APKs
         run: ./gradlew :app:assembleDebug --stacktrace
