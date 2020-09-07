@@ -1,9 +1,11 @@
-name: Build and generate artifacts
-on: [push, pull_request]
+name: Generate and push apk to apk branch
+on:
+  push:
+    branches: [master]
 
 jobs:
   build_apk:
-    name: Build and Generate APK artifacts
+    name: Generate and push apk to apk branch
     runs-on: ubuntu-latest
 
     steps:
@@ -23,13 +25,18 @@ jobs:
           key: cache-${{ runner.os }}-${{ matrix.jdk }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-      - name: Grant Permission to Execute
-        run: chmod +x gradlew
+      - name: Grant Permission to Execute gradle and script
+        run:
+          chmod +x gradlew
+          chmod +x script.sh
         
-      - name: Build
-        run: bash ./gradlew build --stacktrace
+      - name: Generate APKs and upload artifacts
+        run: bash ./gradlew :app:assembleDebug --stacktrace
       - name: Upload APK to artifacts
         uses: actions/upload-artifact@v2
         with:
           name: app
           path: app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Push APKs to apk branch
+        run: ./script.sh
