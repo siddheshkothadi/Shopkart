@@ -25,10 +25,10 @@ jobs:
           key: cache-${{ runner.os }}-${{ matrix.jdk }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-      - name: Grant Permission to Execute gradle and script
-        run:
-          chmod +x gradlew
-          chmod +x script.sh
+      - name: Grant Permission to Execute gradle
+        run: chmod +x gradlew
+      - name: Grant Permission to execute script.sh
+        run: chmod +x script.sh
         
       - name: Generate APKs and upload artifacts
         run: bash ./gradlew :app:assembleDebug --stacktrace
