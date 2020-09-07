@@ -6,6 +6,7 @@ on:
 jobs:
   build_apk:
     name: Generate and push apk to apk branch
+    if: github.repository == 'siddheshkothadi/Shopkart'
     runs-on: ubuntu-latest
 
     steps:
