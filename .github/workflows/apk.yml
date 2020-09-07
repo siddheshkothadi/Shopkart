@@ -6,19 +6,18 @@ on:
 jobs:
   build_apk:
     name: Generate and push apk to apk branch
+    if: github.repository == 'siddheshkothadi/Shopkart'
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
       - name: set up JDK 1.8
-        if: github.repository == 'siddheshkothadi/Shopkart'
         uses: actions/setup-java@v1
         with:
          java-version: 1.8
 
       # Cache gradle
       - name: Cache Gradle and wrapper
-        if: success()
         uses: actions/cache@v2
         with:
           path: |
@@ -29,22 +28,18 @@ jobs:
             ${{ runner.os }}-gradle-
       
       - name: Grant Permissions to Execute
-        if: success()
         run: chmod +x gradlew
         
       - name: Generate APKs
-        if: success()
         run: ./gradlew :app:assembleDebug --stacktrace
         
       - name: Upload APKs to artifacts
-        if: success()
         uses: actions/upload-artifact@v2
         with:
           name: app
           path: app/build/outputs/apk/debug/app-debug.apk
 
       - name: Push APKs to apk branch
-        if: success()
         run: |
           git config --global user.name "siddheshkothadi"
           git config --global user.email "realsiddheshko@gmail.com"
