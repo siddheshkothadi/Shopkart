@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   build_apk:
-    name: Generate APK artifacts
+    name: Build and Generate APK artifacts
     runs-on: ubuntu-latest
 
     steps:
