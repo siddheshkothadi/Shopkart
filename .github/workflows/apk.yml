@@ -12,14 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: set up JDK 1.8
-        if: success()
+#         if: success()
         uses: actions/setup-java@v1
         with:
          java-version: 1.8
 
       # Cache gradle
       - name: Cache Gradle and wrapper
-        if: success()
+#         if: success()
         uses: actions/cache@v2
         with:
           path: |
@@ -30,22 +30,22 @@ jobs:
             ${{ runner.os }}-gradle-
       
       - name: Grant Permissions to Execute
-        if: success()
+#         if: success()
         run: chmod +x gradlew
         
       - name: Generate APKs
-        if: success()
+#         if: success()
         run: ./gradlew :app:assembleDebug --stacktrace
         
       - name: Upload APKs to artifacts
-        if: success()
+#         if: success()
         uses: actions/upload-artifact@v2
         with:
           name: app
           path: app/build/outputs/apk/debug/app-debug.apk
 
       - name: Push APKs to apk branch
-        if: success()
+#         if: success()
         run: |
           git config --global user.name "siddheshkothadi"
           git config --global user.email "realsiddheshko@gmail.com"
