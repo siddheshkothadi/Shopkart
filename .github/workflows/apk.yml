@@ -25,18 +25,28 @@ jobs:
           key: cache-${{ runner.os }}-${{ matrix.jdk }}-gradle-${{ hashFiles('**/*.gradle*') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-      - name: Grant Permission to Execute gradle
-        run: chmod +x gradlew
-      - name: Grant Permission to execute script.sh
-        run: chmod +x script.sh
+      
+      - name: Grant Permissions to Execute
+        run: |
+          chmod +x gradlew
+          chmod +x script.sh
         
-      - name: Generate APKs and upload artifacts
-        run: bash ./gradlew :app:assembleDebug --stacktrace
-      - name: Upload APK to artifacts
+      - name: Generate APKs
+        run: ./gradlew :app:assembleDebug --stacktrace
+      - name: Upload APKs to artifacts
         uses: actions/upload-artifact@v2
         with:
           name: app
           path: app/build/outputs/apk/debug/app-debug.apk
 
       - name: Push APKs to apk branch
-        run: ./script.sh
+        run: |
+          git config --global user.name "siddheshkothadi"
+          git config --global user.email "realsiddheshko@gmail.com"
+          mkdir ~/apk
+          cp app/build/outputs/apk/debug/app-debug.apk ~/apk
+          git fetch origin
+          git checkout apk
+          mv ~/apk/app-debug.apk /home/runner/work/Shopkart/Shopkart
+          git add app-debug.apk
+          echo $GITHUB_RUN_ID $GITHUB_REPOSITORY $GITHUB_SHA $GITHUB_WORKSPACE $GITHUB_ACTOR
