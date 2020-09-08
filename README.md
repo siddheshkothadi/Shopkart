@@ -1,5 +1,4 @@
 
-
 # Shopkart
 ## A simple android app built using MVVM architecture.
 
